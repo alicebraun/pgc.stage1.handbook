@@ -1,4 +1,4 @@
-# Leave-one-out Requests
+# Leave-one-out requests
 
 Researchers may request custom LNO summary statistics that are not readily available for download on [figshare](https://figshare.com/articles/dataset/scz2022/19426775). <br>
 In general, the requesting researcher should compile a list of samples to be excluded in this [Google Sheet](https://docs.google.com/spreadsheets/d/1rdb5Dzvls87X9UJ-UmUVpGWTPt6Rv3h25JFjjhO3Ei0/edit?gid=0#gid=0) based on the instructions in [this Google Doc](https://docs.google.com/document/d/1Z3eNTOAsybHXeWLqsiy-jCWAMqA8_4ZD2UEziJao2Wo/edit?tab=t.0).
@@ -12,7 +12,7 @@ In general, the requesting researcher should compile a list of samples to be exc
 6. Send this back to the PGC data access committee (DAC) representative/Stage 1 SCZ analysis: pgc.stage1.scz@gmail.com  
 
 ## Data return
-All results will be shared back via the PGC DAC account on SURFsnellius. You will need an account on Snellius. You can fill out the request form at the [SCZ DATA ACCESS PORTAL](https://pgcdataaccess.formstack.com/forms/pgc_data_access_scz). Make sure that the field *"Snellius username"* is correctly filled out. <br> Additionally, under the section *"Select the data package you are requesting"*, check the box next to *"Summary statistics only (wave 3 meta-analysis, leave one out"*. <br> This will ensure that you are granted the correct permissions on the return files.
+All results will be shared back via the PGC DAC account on SURFsnellius. You will need an account on Snellius. You can fill out the request form at the [SCZ DATA ACCESS PORTAL](https://pgcdataaccess.formstack.com/forms/pgc_data_access_scz). Make sure that the field *"Snellius username"* is correctly filled out. <br> Additionally, under the section *"Select the data package you are requesting"*, check the box next to *"Summary statistics only wave 3 meta-analysis, leave one out"*. <br> This will ensure that you are granted the correct permissions on the return files.
 
 At a minimum we provide: <br>
 - Summary statistics from the leave-n-out meta-analysis  <br>
@@ -25,6 +25,3 @@ If specified above, we provide standard polygenic risk scores. This includes:
 2. An analysis of how well scores are performing at various thresholds.
 
 Details for the output format can be found in the “Ricopili polygenic risk score output files” section of the [“Instruction for polygenic risk scoring (PRS) using RICOPILI”](https://docs.google.com/document/d/10jvLvnrPIz9zRKlRfMeW8HsHDxEIbs84yP3Ugjhj31E/edit?tab=t.0) document.
-
-In brief, the files are orginized like this: <br>
-

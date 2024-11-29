@@ -1,4 +1,4 @@
-# Leave-one-out Analyses (LNO)
+# Leave-one-out analyses (LNO)
 Occasionally researchers will request summary statistics **excluding specific samples**. <br>
 A number of readily available files is stored in figshare at https://figshare.com/articles/dataset/scz2022/19426775 <br>
 <br>
