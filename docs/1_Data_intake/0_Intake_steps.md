@@ -4,21 +4,6 @@
 **Source document**: [Summary of PGC data intake - Snellius server to YODA portal](https://docs.google.com/document/d/1VGSvFdKB4S-Tox3COG8II5Q340JXvrfE7RyQ9G9fByg/edit?tab=t.0) <br>
 **Author**: Daniel P Howrigan [(howrigan@broadinstitute.org)](mailto:howrigan@broadinstitute.org)
 
-
-## Abbreviation dictionary
-
-| **Abbreviation** | **Description**                                                                                                           |
-|------------------|---------------------------------------------------------------------------------------------------------------------------|
-| **DRC**          | Data Receiving Committee [More information](https://pgc.unc.edu/for-researchers/data-receiving-committee/)                  |
-| **PGC**          | Psychiatric Genomics Consortium                                                                                             |
-| **Workgroup**    | Disease-specific workgroup (e.g., SCZ working group)                                                                        |
-| **DIO**          | Data Intake Officer: Manages intake forms and communication between data owners and PGC. Only one DIO in PGC.              |
-| **DRC rep**      | Data Receiving Committee Representative: Evaluates and rejects/approves incoming datasets. One DRC rep per workgroup.       |
-| **S1 analyst**   | Stage 1 Analyst: Manages the upload of data to server and runs the initial quality control evaluation of new datasets. At least one S1 analyst per workgroup. |
-| **Data owner**   | External person/entity submitting their collected genetic data to PGC.                                                     |
-
-
-
 ## Snellius intake and upload summary
 
 ## STEP 1: Finding and joining the PGC via the web
@@ -53,8 +38,7 @@ Data intake (phase two, or form 2):
 ***
 - Email sent to PGC DRC rep and  stage 1 analyst
 - Email sent to data owner about getting a Snellius account and uploading data to Snellius
-!!! note
-    - **YODA replacement:** <br>
+!!! YODA
     - Directory created in Yoda disease subfolder <br>
     - Access to subfolder granted by adding data owner email to subfolder
 
@@ -63,8 +47,7 @@ Data intake (phase two, or form 2):
 - Fill out required forms and project
 - Wait for approval
 - Get IP cleared for access to server
-!!! note
-    - **YODA replacement:**
+!!! YODA
       - Data owner enters email address into login portal<br>
       - Prompted to create password<br>
       - Upon entry, data owner can view accessible folder <br>
@@ -74,8 +57,7 @@ Data intake (phase two, or form 2):
 Copy data to home directory
 Change access permissions for S1 analyst
 Email S1 analyst that data is ready<br>
-!!! note
-    - **YODA replacement:**
+!!! YODA
       - Data owner can upload files via GUI
       - Files will need to have metadata provided
 
@@ -93,6 +75,6 @@ DRC directory location example for MDD workgroup:
                     └── data1
 
 ```
-    - **YODA replacement:** <br>
-Data owner submits the files to the “vault”, which retains the current state of the folder
-The data manager gets notified that files have been submitted, and can accept or reject the submission
+!!! YODA
+      - Data owner submits the files to the “vault”, which retains the current state of the folder
+      - The data manager gets notified that files have been submitted, and can accept or reject the submission
