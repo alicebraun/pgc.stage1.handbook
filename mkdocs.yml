@@ -1,4 +1,4 @@
-site_name: My Docs
+site_name: Stage 1 Handbook
 theme:
   features:
     - content.code.copy
@@ -23,8 +23,9 @@ extra:
 
 plugins:
     - search: {}
+    - git-revision-date-localized
     - encryptcontent:
-        global_password: 'your_password'
+        global_password: 'icd11'
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -34,8 +35,10 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
-
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 
 copyright: |
-  &copy; 2024 Alice Braun  
+  &copy; 2024 Alice Braun | braun@broadinstitute.org  
