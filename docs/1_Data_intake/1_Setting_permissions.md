@@ -4,13 +4,11 @@
 **Source document**: [PGC Data Intake: 
 Uploading data to the Snellius server](https://docs.google.com/document/d/1RuoCeLBPTzpFTMB9cHejgTK-qfEiyj-GG7hAXnkx6BE/edit?tab=t.0) <br>
 **Authors**: <br>
-Prof. Stephan Ripke, M.D., Ph.D., Group Leader, [sripke@broadinstitute.org](mailto:sripke@broadinstitute.org)<br>
+Prof. Stephan Ripke, M.D., Ph.D., Group Leader, [ sripke@broadinstitute.org ](mailto:sripke@broadinstitute.org)<br>
 Daniel Howrigan, Ph.D., Group Leader, [howrigan@broadinstitute.org](mailto:howrigan@broadinstitute.org)<br>
 Vassily (Vasa) Trubetskoy, B.A., M.Sc, [vassily@broadinstitute.org](mailto:vassily@broadinstitute.org)<br>
 Sarah Colbert, B.A., [sarah.colbert@icahn.mssm.edu](mailto:sarah.colbert@icahn.mssm.edu)<br>
-Laboratory for Statistical Genetics, Charité – Universitätsmedizin Berlin (Berlin, Germany) <br>
-ATGU, MGH (Boston, MA, USA) <br>
-Stanley Center (Cambridge, MA, USA) <br>
+***
 
 ## Uploading data to the Snellius server
 ***

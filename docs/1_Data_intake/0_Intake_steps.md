@@ -1,11 +1,10 @@
-# Summary of PGC data intake
+# Data intake steps 
 ***
 **Snellius server to YODA portal** <br>
 **Source document**: [Summary of PGC data intake - Snellius server to YODA portal](https://docs.google.com/document/d/1VGSvFdKB4S-Tox3COG8II5Q340JXvrfE7RyQ9G9fByg/edit?tab=t.0) <br>
-**Author**: Daniel P Howrigan [(howrigan@broadinstitute.org)](mailto:howrigan@broadinstitute.org)
+**Author**: Daniel Howrigan, Ph.D., Group Leader, [howrigan@broadinstitute.org](mailto:howrigan@broadinstitute.org)<br> 
 
-## Snellius intake and upload summary
-
+***
 ## STEP 1: Finding and joining the PGC via the web
 ***
 - Navigate to the PGC website: [https://pgc.unc.edu/about-us/join-pgc/](https://pgc.unc.edu/about-us/join-pgc/) 

@@ -13,8 +13,8 @@ If you have any suggestions or questions please reach out to [Alice](mailto:brau
 The documentation will guide you through:<br>
 
 1. [Managing data intake](1_Data_intake/0_Intake_steps.md)
-2. [Data processing using RICOPILI]()
-3. [Conducting leave-one-out (LNO) analyses](2_Leave_one_out/0_Leave-one-out.md)
+2. [Data processing using RICOPILI](2_RICOPILI/0_Installing_RICOPILI.md)
+3. [Conducting leave-one-out (LNO) analyses](3_Leave_one_out/0_Leave-one-out.md)
 
 
 
