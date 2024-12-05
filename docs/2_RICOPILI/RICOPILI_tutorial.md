@@ -3,7 +3,7 @@
 ***
 
 ## Detailed analysis report of Hapgen simulated GWAS data
-**Source document**: [RICOPILI tutorial](https://docs.google.com/document/d/1ux_FbwnvSzaiBVEwgS7eWJoYlnc_o0YHFb07SPQsYjI/edit?tab=t.0) <br>
+**Source document**: <br> [RICOPILI tutorial](https://docs.google.com/document/d/1ux_FbwnvSzaiBVEwgS7eWJoYlnc_o0YHFb07SPQsYjI/edit?tab=t.0) <br>
 **Authors**: <br>
 Swapnil Awasthi, Ph.D. student, [swapnil.awasthi@charite.de](mailto:swapnil.awasthi@charite.de) <br>
 Prof. Stephan Ripke, M.D., Ph.D., Group Leader, [stephan.ripke@charite.de](mailto:stephan.ripke@charite.de)

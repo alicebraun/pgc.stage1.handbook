@@ -1,7 +1,7 @@
 # Modules
 
 **For data intake on SURFsnellius** <br>
-**Source document**: [RICOPILI: Sub-Steps of each module](https://docs.google.com/document/d/13ljVIhKYek_LqmvywZ94f4Mh7hxF5jOlXEGPLYQSjnc/edit?tab=t.0#heading=h.1e6uecnclnyb) <br>
+**Source document**: <br> [RICOPILI: Sub-Steps of each module](https://docs.google.com/document/d/13ljVIhKYek_LqmvywZ94f4Mh7hxF5jOlXEGPLYQSjnc/edit?tab=t.0#heading=h.1e6uecnclnyb) <br>
 **Authors**: <br>
 Swapnil Awasthi, Ph.D. student, [swapnil.awasthi@charite.de](mailto:swapnil.awasthi@charite.de) <br>
 Prof. Stephan Ripke, M.D., Ph.D., Group Leader, [stephan.ripke@charite.de](mailto:stephan.ripke@charite.de)

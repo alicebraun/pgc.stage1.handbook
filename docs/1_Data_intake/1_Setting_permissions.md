@@ -1,6 +1,7 @@
 # Setting permissions
 ***
-**Source document**: [PGC Data Intake: 
+**Source document**: <br> 
+[PGC Data Intake: 
 Uploading data to the Snellius server](https://docs.google.com/document/d/1RuoCeLBPTzpFTMB9cHejgTK-qfEiyj-GG7hAXnkx6BE/edit?tab=t.0) <br>
 **Authors**: <br>
 Prof. Stephan Ripke, M.D., Ph.D., Group Leader, [ sripke@broadinstitute.org ](mailto:sripke@broadinstitute.org)<br>
