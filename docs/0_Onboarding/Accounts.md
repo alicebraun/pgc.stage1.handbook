@@ -1,4 +1,7 @@
 # Accounts
+***
+**Author**: Alice Braun, M.Sc., B.A. [braun@broadinstitute.org](mailto:braun@broadinstitute.org)<br> 
+***
 The PGC stage 1 analyst maintains multiple accounts. For the schizophrenia working group these are the: <br>
 
 1. The [SURFsnellius](https://www.surf.nl/en/services/snellius-the-national-supercomputer) supercomputer account: pgca1scz@snellius.surl.nl

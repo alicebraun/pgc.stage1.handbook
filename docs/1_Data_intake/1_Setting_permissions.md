@@ -1,6 +1,5 @@
 # Setting permissions
 ***
-**For data intake on SURFsnellius** <br>
 **Source document**: [PGC Data Intake: 
 Uploading data to the Snellius server](https://docs.google.com/document/d/1RuoCeLBPTzpFTMB9cHejgTK-qfEiyj-GG7hAXnkx6BE/edit?tab=t.0) <br>
 **Authors**: <br>
