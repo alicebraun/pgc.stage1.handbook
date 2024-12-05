@@ -39,15 +39,15 @@ For teaching purposes, we introduced technical errors and association biases to 
    6. To create some false positive associated SNPs, we selected 20 SNPs and flipped allele1 and allele2 while introducing missingness in these SNPs.  
    7. Finally, cases and controls were merged back into a single cohort.
 
-3. ## **Installation**
+## 3. **Installation**
 
 First, install the latest version of the RICOPILI pipeline on your High-performance computer(HPC). This document [here](https://docs.google.com/document/d/14aa-oeT5hF541I8hHsDAL_42oyvlHRC5FWR7gir4xco/edit#heading=h.clyzm24wfoeu)[^3] describes the process of custom installation in detail.
 
-4. ## **Download data** 
+## 4. **Download data** 
 
 The genotype data described in Table 1 can be downloaded from here: [^4][https://personal.broadinstitute.org/sawasthi/share\_links/UzoZK7Yfd7nTzIxHamCh1rSOiIOSdj\_gwas-qcerrors.py](https://personal.broadinstitute.org/sawasthi/share_links/UzoZK7Yfd7nTzIxHamCh1rSOiIOSdj_gwas-qcerrors.py)
 
-5. ## **Quality control** 
+## 5. **Quality control** 
 
 These two modules of the pipeline are used for quality control.
 
@@ -244,9 +244,10 @@ Figure 17: Post-QC QQ plot from first *‘preimp’* on cohort 2\.
 The default setting of the *‘preimp’* module excludes 37,622 (6.3%) of SNPs for various technical reasons (Figure 15). 100 individuals get excluded. During this first cleaning round for technical QC Lambda inflation gets resolved (Figures 16 and 17), confirming our initial setup of this cohort.
 
 Still, there are 31 genome-wide significant SNPs in the QC report (also throwing a red flag), again we take a detailed look via the *detres* file.
-
- **awk '$8\<5.0e-08 || NR \==1' sim\_hap2a\_eur\_sa-qc1.detres \> sim\_hap2a\_eur\_sa-qc1.detres.gws**  
- **column \-t sim\_hap2a\_eur\_sa-qc1.detres.gws**  
+```bash
+awk '$8 <5.0e-08 || NR ==1' sim_hap2a_eur_sa-qc1.detres > sim_hap2a_eur_sa-qc1.detres.gws 
+column -t sim_hap2a_eur_sa-qc1.detres.gws
+```
  ![][image23]  
 Figure 18: Cohort 2: List of GWAS hits in second *‘preimp’* association analysis
 
