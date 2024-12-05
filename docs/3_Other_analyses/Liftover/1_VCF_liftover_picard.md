@@ -4,7 +4,7 @@
 ***
 ## Download the reference sequence per chromosome and write a reference dictionary
 
-```{bash}
+```bash
 #!/bin/bash
 #SBATCH --job-name=ensembl_ref         # Name of the job <br>
 #SBATCH --output=logs/ensembl_ref_%A_%a.log  # Output log file in logs directory 
@@ -42,7 +42,7 @@ java -jar ../software/picard.jar CreateSequenceDictionary \
 ## Recode chromosome names
 Newer reference files have a "chr" prefix before the chromosome number (e.g. chr22 instead of 22 in the CHR column). <br>
 If liftover is failing due to this issue, you may need to use BCF tools to change the naming scheme using the follwing jobscript:<br>
-```{bash}
+```bash
 
 #!/bin/bash
 #SBATCH --job-name=bcf_rename         # Name of the job
@@ -88,7 +88,7 @@ rm -f chr_name_conv.txt
 
 
 ## Conduct the liftover
-```{bash}
+```bash
 #!/bin/bash
 #SBATCH --job-name=picard_liftover         # Name of the job
 #SBATCH --output=logs/picard_liftover_%A_%a.log  # Output log file in logs directory

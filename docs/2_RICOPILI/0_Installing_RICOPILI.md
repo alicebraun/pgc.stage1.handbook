@@ -38,63 +38,41 @@ mv ricopili/rp_bin/ ~
 On SURFsnellius you may use the centrally installed dependencies on PGC DAC: <br>
 `/gpfs/work5/0/pgcdac/ricopili_download/dependencies/` <br>
 To swiftly install RICOPILI you need to create a file called ricopili.conf e.g. in your home directory.
-`vim ricopili.conf` and paste the following contents, replacing:<br>
+`vim ricopili.conf` and paste the following contents, replacing: `home, init, email, loloc` with your personal information. <br>
 
-```
-home YOUR_HOME
-init YOUR_INITIALS
-email YOUR_EMAIL
-loloc YOUR_HOME
-```
-
-!!! warning
-    To fix eloc ln -s /usr/lib64/libgsl.so.25/ libgsl.so.23 <br>
-    `ln -s /usr/lib64/libgsl.so.25/ libgsl.so.23` <br>
-    `export LD_LIBRARY_PATH=`
-    <br>
-    <br>
-    Alternatively you can install EIGENSOFT through conda: <br>
-    `conda install bioconda::eigensoft`
-
-```
-
-!!! warning
-Currently, you need to manually load texlive and GCC in order for several modules to run (e.g. pcaer):
-```
-module load 2022 <br>
-module add texlive/20230313-GCC-11.3.0 
-
-```
-
-#eloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/eigensoft/mar_2023/EIG-master/bin/ 
-eloc /home/pgca1scz/.conda/envs/ricopili/bin/
+## SURFsnellius config file 
+```bash
+#eloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/eigensoft/mar_2023/EIG-master/bin/
+eloc /home/pgca1scz/.conda/envs/ricopili/bin/ # conda environment installation
 i2loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/impute_v2
 i4loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/impute_v4
 hmloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/hapmap_ref/
 minimac3loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/Minimac3/
 minimac4loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/Minimac4/minimac4-4.1.2-Linux-x86_64/bin/ 
-bcloc_plugins /gpfs/work5/0/pgcdac/ricopili_download/dependencies/bcftools/bcftools-1.18/plugins/  
+gmloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/genetic_map_files 
 sh5loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/shapeit5 
 plink2loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/plink2 
 rloc module_SPACE_load_SPACE_2023;module_SPACE_load_SPACE_R/4.3.2-gfbf-2023a;_SPACE_R
-ldsc_start NA
+ldsc_start /home/pgca1scz/.conda/envs/ricopili/bin/;_SPACE_ldsc.py
 sh3loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/shapeit3
 tabixloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/tabix/
-bcloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/bcftools/bcftools-1.9_bin/
+bcloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/bcftools/bcftools-1.18
+bcloc_plugins /gpfs/work5/0/pgcdac/ricopili_download/dependencies/bcftools/bcftools-1.18/plugins/
 ealoc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/eagle
 bgziploc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/bgzip/
-ldsc_ref /gpfs/work5/0/pgcdac/ricopili_download/dependencies/ldsc
-liloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/liftover/
+ldsc_ref /gpfs/work5/0/pgcdac/ricopili_download/dependencies/ldsc # conda environment installation
+#liloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/liftover/
+liloc /home/pgca1scz/rp_dependencies/liftover #local directory
 rpac NA
 p2loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/plink
 shloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/shapeit
 meloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/metal/
 bcrloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/bcftools/resources/
+home <YOUR_HOME>
 sloc /scratch-local
-home YOUR_HOME
-init YOUR_INITIALS
-email YOUR_EMAIL
-loloc LOG_DIRECTORY # usually identical to YOUR_HOME
+init <YOUR_INITIALS>
+email <YOUR_MAIL>
+loloc <YOUR_HOME>
 batch_jobcommand sbatch
 batch_name -J_SPACE_XXX
 batch_jobfile XXX
@@ -111,4 +89,83 @@ batch_job_output_jid Submitted_SPACE_batch_SPACE_job_SPACE_XXX
 batch_ncores_per_node 32
 batch_mem_per_node 56
 queue custom
+
 ```
+Start the script rp_config. <br>
+This is an interactive script that will take care of the installation in your computer cluster environment. The standard procedure is meanwhile custom configuration. 
+If Ricopili is already installed in the system under your account, it will ask you if you wish to unset the Ricopili PATH settings first. For first time custom installation it is highly recommended to do so. The configuration script will give you the two commands you have to issue. You just need to copy/paste them into the command line. 
+
+If the configuration script cannot find a configuration file (by default the script is looking for a file named rp_config.custom.txt) an empty file is created, that needs to be filled by you and/or a system-administrator with the knowledge gained in the previous chapters.
+
+This file follows a two column structure, where variable-names are found in the first column and variable-values in the second. “###” means comments, everything after that is discarded.
+Whitespace can be as long as necessary
+Spaces are not allowed. Please use term `_SPACE_` if needed. <br>
+
+To run the configuration on **SURFsnellius** you can copy paste the following into the `rp_config.custom.txt`, replacing `rp_user_initials, rp_user_email, rp_logfiles`:<br>
+```bash
+
+### for details please refer to https://docs.google.com/document/d/14aa-oeT5hF541I8hHsDAL_42oyvlHRC5FWR7gir4xco/edit?usp=sharing
+###          and https://docs.google.com/spreadsheets/d/1LhNYIXhFi7yXBC17UkjI1KMzHhKYz0j2hwnJECBGZk4/edit?usp=sharing
+variable_name                  variable_value
+----------------------------------------------
+rp_dependencies_dir  /gpfs/work5/0/pgcdac/ricopili_download/dependencies
+R_packages_dir    /gpfs/work5/0/pgcdac/ricopili_download/dependencies/R_packages
+starting_R        module_SPACE_load_SPACE_2023_SPACE_R/4.2.1-foss-2022a;_SPACE_R
+path_to_Perlmodules  /gpfs/work5/0/pgcdac/ricopili_download/dependencies/perl_modules
+path_to_scratchdir   /scratch-local
+starting_ldsc  NA
+ldsc_reference   /gpfs/work5/0/pgcdac/ricopili_download/dependencies/ldsc
+rp_user_initials   <YOUR_INITIALS>
+rp_user_email   <YOUR_MAIL>
+rp_logfiles     <YOUR_HOME>
+----------------------------------------
+----------------------------------------
+---- jobarray and queueing parameters:
+----------------------------------------
+----------------------------------------
+batch_jobcommand sbatch
+batch_memory_request NONE
+batch_walltime --time=0-HH:MM:SS
+batch_array --array=1-XXX%YYY
+batch_max_parallel_jobs_per_one_array added_to_array
+batch_jobfile XXX
+batch_name -J_SPACE_XXX
+batch_stdout -o_SPACE_XXX/%x-%j.out
+batch_stderr -e_SPACE_XXX/%x-%j.out
+batch_job_dependency --dependency=afterany:XXX
+batch_array_task_id $SLURM_ARRAY_TASK_ID
+batch_other_job_flags  --partition=thin_SPACE_--cpus-per-task=32
+batch_job_output_jid Submitted_SPACE_batch_SPACE_job_SPACE_XXX
+batch_ncores_per_node 32
+batch_mem_per_node 56
+
+```
+
+
+```bash
+./rp_config
+```
+Follow the instructions but do not replace the config file you have just pasted.
+
+## Bug fixes on SURFsnellius
+***
+!!! warning
+    Currently, the libgsl.so.23 dependency for EIGENSOFT is not available on SURFsnellius. <br>
+    To fix eloc without conda try the following workaround: <br> 
+    `ln -s /usr/lib64/libgsl.so.25/ libgsl.so.23` <br>
+    `export LD_LIBRARY_PATH=`
+    <br>
+    <br>
+    Alternatively you can install EIGENSOFT through conda: <br>
+    `conda install bioconda::eigensoft`
+
+
+!!! warning
+
+    Currently, you need to manually load texlive and GCC in order for several modules to run (**e.g. pcaer**):
+    ```
+    module load 2022
+    module add texlive/20230313-GCC-11.3.0 
+    ``` 
+## RICOPILI with conda
+***

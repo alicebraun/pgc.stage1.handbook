@@ -1,5 +1,10 @@
 site_name: Stage 1 Handbook
 theme:
+theme:
+  name: material
+  highlightjs: true  # This enables highlight.js if you want to use a different syntax highlighter, else leave as is
+  pygments_style: monokai # Specify the Pygments style you want (e.g., 'monokai', 'friendly', 'perldoc', etc.)
+
   icon:
     admonition:
       note: octicons/tag-16
@@ -14,6 +19,7 @@ theme:
       bug: octicons/bug-16
       example: octicons/beaker-16
       quote: octicons/quote-16
+      
   features:
     - content.code.copy
   name: material
@@ -46,12 +52,15 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+      use_pygments: true
+      css_class: highlight   
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+
 
 
 copyright: |
