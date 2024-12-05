@@ -1,5 +1,7 @@
 # Conducting leave-one-out analyses
-
+***
+**Author**: <br> Alice Braun, M.Sc., B.A. [braun@broadinstitute.org](mailto:braun@broadinstitute.org)<br> 
+***
 In order to conduct LNO analyses on SURFsnellius we need to navigate to the following working directories: <br>
 `/gpfs/work5/0/pgcdac/DWFV2CJb8Piv_0116_pgc_data/pgcdrc/scz/working/wave3/summary_stats/`
 It contains several sub-directories: <br>

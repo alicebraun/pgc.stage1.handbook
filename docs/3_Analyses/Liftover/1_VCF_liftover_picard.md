@@ -1,4 +1,7 @@
 # Conducting liftover using Picardtools
+***
+**Author**: <br> Alice Braun, M.Sc., B.A. [braun@broadinstitute.org](mailto:braun@broadinstitute.org)<br> 
+***
 ## Download the reference sequence per chromosome and write a reference dictionary
 
 ```{bash}
@@ -37,7 +40,8 @@ java -jar ../software/picard.jar CreateSequenceDictionary \
 
 ```
 ## Recode chromosome names
-22 > chr22 
+Newer reference files have a "chr" prefix before the chromosome number (e.g. chr22 instead of 22 in the CHR column). <br>
+If liftover is failing due to this issue, you may need to use BCF tools to change the naming scheme using the follwing jobscript:<br>
 ```{bash}
 
 #!/bin/bash
