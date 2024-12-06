@@ -175,8 +175,12 @@ awk '{ gsub(/any.string/,"", $2); print } ' my_data  > my.output
 
 For sophisticated real-world usage also refers to aligning sum stats based on position and SNP names:
 https://docs.google.com/document/d/1o4bN_uLK4IEItXCSdeQkXfZwEpLuSCWlveJevRogi08/edit#heading=h.4008addvumol
-Set ACL Permissions (on SURFsaras LISA Cluster, specifically for the home directory)
-nfs4_setfacl -a A::username@surf.nl:xrw ~
+Set ACL Permissions (on SURFs snellius supercomputer, specifically for the home directory)
+setfacl -m user:pgca1scz:rx /home/braun
+setfacl -m u:pgca1scz:rx  /home/braun/test2_dir
+
+
+
 
 PLINK commands
 e.g. https://www.cog-genomics.org/plink/1.9/filter 

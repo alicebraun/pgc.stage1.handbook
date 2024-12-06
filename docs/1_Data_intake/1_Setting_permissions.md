@@ -76,7 +76,7 @@ cd ~
 Run the following command:
 
 ```
-nfs4_setfacl -a A::pgca1xxx@surf.nl:x ~
+nfs4_setfacl -a A::pgca1xxx@snellius.surf.nl:x ~
 ``` 
 Where pgca1xxx is the stage 1 analyst (xxx being the disease code) that will copy over data to the appropriate data receiving subdirectory. See Appendix for a description of what this command is doing. Importantly, this does not allow the user pgca1xxx to read any other data in your home directory, just traverse into it.
 
