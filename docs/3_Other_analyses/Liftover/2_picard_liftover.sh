@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=picard_liftover         # Name of the job
+#SBATCH --job-name=picard_liftover        
 #SBATCH --output=logs/picard_liftover_%A_%a.log  # Output log file in logs directory
 #SBATCH --error=logs/picard_liftover_%A_%a.err   # Error log file in logs directory
 #SBATCH --time=12:00:00               # Time limit (format: HH:MM:SS)
@@ -26,11 +26,11 @@ if [[ -z "${CHR}" ]]; then
     exit 1
 fi
 
-# Define the reference genome and reject file dynamically
+# Define the reference genome and reject file names
 REFERENCE_FASTA=ensembl/Homo_sapiens.GRCh38.dna.chromosome.${CHR}.fa
 REJECT=HRC.GRCh38.chr${CHR}.ensembl.rejected.vcf.gz
 
-# Run the Picard LiftoverVcf command
+# Run the Picard LiftoverVcf command with memory increase -Xmx100g
 java -Xmx100g -jar software/picard.jar LiftoverVcf \
      I=all_chromosomes_input/HRC.r1-1.EGA.GRCh37.chr${CHR}.haplotypes.prefix.vcf.gz \
      O=all_chromosomes_output/HRC.r1-1.EGA.GRCh38.ensembl.chr${CHR}.haplotypes.vcf.gz \
