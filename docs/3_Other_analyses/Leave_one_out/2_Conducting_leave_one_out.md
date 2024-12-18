@@ -33,3 +33,10 @@ postimp_navi --out NAME --result results_FILE --addout SUFFIX --noldsc
 ```
 After the result danerfile with the LNO meta-analysis results is ready it needs to be moved to PGC DAC at:<br>
 `/gpfs/work5/0/pgcdac/DWFV2CJb8Piv_0116_pgc_data/scz/wave3/summary_stats/autosomes/lno/`
+
+
+## Custom LNO
+***
+Sometimes people may request custom LNO analyses, requiring to run a new GWAS on wave3 genotypes on the Broad cluster. <br>
+The imputed genotypes (using 1KG) are located on the broad at `/psych/ripke/scz/wave3/scz_phase3_imputation/batch_3`. The mds_cov files with the covariates are located at `/psych/ripke/scz/wave3/scz_phase3_imputation/batch123`.
+
