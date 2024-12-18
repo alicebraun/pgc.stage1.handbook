@@ -1,4 +1,4 @@
-# Running postimp in a new directory
+# Postimp in a new directory
 ***
 **Source document**: <br> [How to run the post-imputation module on raw genotypes or dosages in a new directory](https://docs.google.com/document/d/1uD0VBFr-9UeALZ4rVssJcJG9855nQ7tgX6B-zoamosg/edit?tab=t.0) <br>
 **Authors**: <br>
