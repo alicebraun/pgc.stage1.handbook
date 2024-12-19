@@ -151,21 +151,23 @@ Follow the instructions but do not replace the config file you have just pasted.
 ***
 !!! warning
     Currently, the libgsl.so.23 dependency for EIGENSOFT is not available on SURFsnellius. <br>
-    To fix eloc without conda try the following workaround: <br> 
+    To fix eloc without conda try the following workaround trick: <br> 
     `ln -s /usr/lib64/libgsl.so.25/ libgsl.so.23` <br>
-    `export LD_LIBRARY_PATH=`
+    `export LD_LIBRARY_PATH=/usr/lib64/`
     <br>
     <br>
     Alternatively you can install EIGENSOFT through conda: <br>
     `conda install bioconda::eigensoft`
+    and add the following to your ricopili.conf  
+    `eloc /home/$USER/.conda/envs/ricopili/bin/`
 
 
 !!! warning
 
     Currently, you need to manually load texlive and GCC in order for several modules to run (**e.g. pcaer**):
     ```
-    module load 2022
-    module add texlive/20230313-GCC-11.3.0 
+    module load 2024
+    module load texlive/20230313-GCC-11.3.0
     ``` 
 ## RICOPILI with conda
 ***

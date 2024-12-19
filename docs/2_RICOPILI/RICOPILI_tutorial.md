@@ -19,25 +19,27 @@ Prof. Stephan Ripke, M.D., Ph.D., Group Leader, [sripke@broadinstitute.org](mail
 From Hapgen simulated data we randomly selected 6000 European (eur) and 200 Asian (asn) individuals and extracted the SNPs of a widely used genotyping platform (Illumina OmniExpress). We then divided the European cohort into five subsets (N= 2000, 1000, 1000, 1000, 1000\) and the Asian cohort into two subsets (N=100 each). We assigned case and control status randomly to each European cohort and assigned 2/98 and 5/95 cases/controls to the two Asian cohorts. Finally, we merged the two Asian cohorts to European cohorts 1 and 3\. The composition of the resulting five cohorts are described in Table 1\.
 
 | S.No | datasets | name | n | cases | controls  | SNPs  | interventions |
-| :---: | ----- | :---: | :---: | :---: | :---: | :---: | ----- |
-| 1 | sim\_sim1a\_eur\_sa\_merge.miss | hap1a | 2100 | 985 | 1115 | 547764[^1] | Introduced population stratification (by merging it with Asian cohort 1\) and also technical errors |
-| 2 | sim\_sim2a\_eur\_sa\_merge.miss | hap2a | 1000 | 474 | 526 | 593970 | Only technical errors. |
-| 3 | hapgen\_sample3a | hap3a | 1100 | 478 | 622 | 5477641 | Only population stratification by merging with Asian cohort 2\. |
+| :---: | ----- | :---: | :---: | :---: | :---: | :---: |  --------------------  |
+| 1 | sim\_sim1a\_eur\_sa\_merge.miss | hap1a | 2100 | 985 | 1115 | 547764 [1]| Population stratification, technical errors |
+| 2 | sim\_sim2a\_eur\_sa\_merge.miss | hap2a | 1000 | 474 | 526 | 593970 | Only technical errors |
+| 3 | hapgen\_sample3a | hap3a | 1100 | 478 | 622 | 5477641 | Population stratification |
 | 4 | hapgen\_sample4b | hap4a | 1000 | 483 | 517 | 593970 | Shares 10 overlapping individuals with cohort 5 |
 | 5 | hapgen\_sample5a.ph | hap5a | 1000 | 516 | 484 | 593970 | \- |
 
+***
+Note: [1] The number of SNPs are less than the other cohorts as these were formed by a merging asian and european cohorts, so we only took the overlapping SNPs between them.
 
-1. ## **Description of introduced biases**
+## 2. **Description of biases**
 
 For teaching purposes, we introduced technical errors and association biases to these cohorts. We selected cohorts 1 and 2 to produce technical errors with false-positive associations. In order to do so, we performed the following steps **separately for cases and controls** in both of the cohorts.[^2]
 
 1. To create autosomal heterozygosity rate deviations in individuals we changed the heterozygous genotypes to homozygous for all SNPs in 10 selected probands.  
-   2. To create missingness per individual, a set of 100 probands were selected and a missing rate of SNPs between 0-10% (from a skewed distribution with a higher probability of low missing rates) was introduced.  
-   3. To create sex errors we randomly selected 10 (male/female) and swapped their gender assignments.  
-   4. To create missing SNPs, we randomly selected 2% SNPs of all individuals and introduced missing genotypes, by choosing missingness rates between 0-10% (from a skewed distribution with a higher probability of low missing rates).   
-   5. To create Hardy Weinberg disequilibrium per SNPs, we randomly selected 2% of all SNPs and introduced an artificial excess of homozygosity.   
-   6. To create some false positive associated SNPs, we selected 20 SNPs and flipped allele1 and allele2 while introducing missingness in these SNPs.  
-   7. Finally, cases and controls were merged back into a single cohort.
+   1. To create missingness per individual, a set of 100 probands were selected and a missing rate of SNPs between 0-10% (from a skewed distribution with a higher probability of low missing rates) was introduced.  
+   2. To create sex errors we randomly selected 10 (male/female) and swapped their gender assignments.  
+   3. To create missing SNPs, we randomly selected 2% SNPs of all individuals and introduced missing genotypes, by choosing missingness rates between 0-10% (from a skewed distribution with a higher probability of low missing rates).   
+   4. To create Hardy Weinberg disequilibrium per SNPs, we randomly selected 2% of all SNPs and introduced an artificial excess of homozygosity.   
+   5. To create some false positive associated SNPs, we selected 20 SNPs and flipped allele1 and allele2 while introducing missingness in these SNPs.  
+   6. Finally, cases and controls were merged back into a single cohort.
 
 ## 3. **Installation**
 
@@ -98,13 +100,12 @@ Table 2: List of file names of (pdf) QC reports and pre/post-Qc’d file names o
    
 Each file name (QC’d genotypes and reports pdfs in Table 2\) starts with three characters (an abbreviation of the studied phenotype; “sim” in this case) argument given to ‘*\--dis’* flag in *‘preimp’* module. Which is followed by the study name as filled in *‘\[--dis\].names’* under the column ‘STUDYNAME’, then the population which is European “eur” (by default it is European you can change this by using *\--popname* in *‘preimp’*). Finally, the initials of the analyst (here “sa”) which is fixed during the RICOPILI installations[^12]. The ‘qc1’ in the file names implies that these belong to the first cycle of *‘preimp’* module.    
 
-#### 
 
-#### Cohort 1 (sim\_sim1a\_eur\_sa\_merge.mis.bed/.bim/.fam)
-
+### Cohort 1 
+`sim_sim1a_eur_sa_merge.mis.bed/.bim/.fam`
 This cohort consists of 983 cases, 1117 controls of the European population and 2 cases, and 98 controls from the Asian population including technical biases for SNPs as described in sections 1 and 2\.  
 
-##### Preimp/QC results: 
+#### Preimp/QC results 
 
 **File: sim\_hap1a\_eur\_sa-qc1.pdf**  
 **![][image5]**  
@@ -121,7 +122,7 @@ Figure 6: Post-QC QQ plot from first *‘preimp’* on cohort 1
 
 We will use the *pcaer*’ module to address population stratification and sample overlap. With this module, we will perform principal component analysis (PCA) on the post-QC’d data **(sim\_hap1a\_eur\_sa-qc1.bed/.bim/fam; Table 2\)** to identify and visualize population structures in the data as well as have a detailed look at sample-overlap and \-relatedness.
 
-##### Principal component analysis
+#### Principal component analysis
 
 To start the *‘pcaer’* module create symbolic links of QC’d files into an empty directory and run the below command.
 
@@ -223,11 +224,11 @@ Figure 14: Post-QC QQ plot from third *‘preimp’* on cohort 1
 
 We see (Figures 13 and 14\) that with these various QC actions we achieved a genotype dataset with no noticeable biases, also supported by 10 green QC flags.
 
-#### Cohort 2 (sim\_sim2a\_eur\_sa\_merge.miss.bed/.bim/.fam)
-
+### Cohort 2
+`sim_sim2a_eur_sa_merge.miss.bed/.bim/.fam`
 The second cohort consisted of 474 cases and 526 controls of eur population. Here we only introduced technical errors as described in section 2\. 
 
-##### Preimp/QC results: 
+#### Preimp/QC results 
 
 **File: sim\_hap2a\_eur\_sa-qc1.pdf**  
 **![][image19]**
@@ -261,7 +262,7 @@ Now start, from a new directory, the second *‘preimp’* on the genotypes data
 
  **preimp\_dir \--dis sim \--out hap2a\_SNP.ex**
 
-#### ![][image24]
+ ![][image24]
 
 Figure 19: Screenshot ‘*sim.names*’ (*\[--dis\].names*) from second ‘*preimp*’ on cohort 2\.
 
@@ -286,13 +287,12 @@ Figure 21: Post-QC QQ plot from second *‘preimp’* on cohort 2\.
 
 The second round of *‘preimp’* for cohort 2 (Figures 20 and 21 ) reveals a clean dataset without spurious hits and still enough SNPs (551,898) after QC for imputation. 10 green flags indicate a “clean” cohort.
 
-# 
 
-#### Cohort 3 (hapgen\_sample3a.bed/.bim/.fam)
-
+### Cohort 3 
+`hapgen_sample3a.bed/.bim/.fam`
 The cohort 3 consists of 473 eur cases and 527 eur controls and 5 asn cases and 95 asn controls. 
 
-##### Preimp/QC results: 
+#### Preimp/QC results
 
 File: sim\_hap3a\_eur\_sa-qc1.pdf  
 ![][image28]  
@@ -309,21 +309,8 @@ This QC report is technically relatively clean compared to cohort 1 and cohort 2
 
  **pcaer \--prefercase \--preferfam \--out pca\_hap3a sim\_hap3a\_eur\_sa-qc1.bim**
 
-##### 
 
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### Principal component analysis.
+#### Principal component analysis
 
 **File pca\_hap3a.menv.mds.2d.pdf.gz**  
 **![][image32]**  
@@ -354,8 +341,8 @@ Table 6: Pre/Post QC files from second ‘*preimp*’ on cohort 3
 **![][image35]**  
 Figure 27: Post-QC QQ plot from second *‘preimp’* on cohort 3\.
 
-#### Cohort 4 (hapgen\_sample4b.bed/.bim/fam) and Cohort 5 (hapgen\_sample5a.ph.bed/.bim/fam)
-
+#### Cohort 4  and Cohort 5 
+`hapgen_sample4b.bed/.bim/fam` and `hapgen_sample5a.ph.bed/.bim/fam`
 We didn’t introduce any technical or population biases to these two cohorts. Cohort 4 contains 483 eur cases and 517 eur controls while cohort 5 contains 516 eur cases and 484 eur controls. Cohort 4 contains 10 individuals from Cohort 5 with distinct identifiers randomly assigned new phenotypes. We will demonstrate how to use RICOPILI to identify and handle sample overlap across cohorts later in this document. 
 
 ##### Preimp/QC results: 
@@ -393,12 +380,12 @@ Again, we will demonstrate how to use Ricopili to identify and handle sample ove
 
 Table 7: Summary of Quality Control Procedures
 
-6. ## Imputation[^20]
+## 6. Imputation
 
 **Note:** If you are the first one to run this RICOPILI tutorial on your computer cluster, follow the instructions below for imputing the QC’d datasets. Be aware that you will need around 240GB of free space to run the *‘impute’* module, even though once the imputation is finished and intermediate files are cleaned, the imputed datasets will take only 120GB. If you successfully finished imputation on your HCP and  you are willing to share access to the imputed datasets with others, please let us know which is your HPC environment and the corresponding path so that we can share within this tutorial.  
 If you are using one of the clusters below, the imputation step has already been performed for these WC’d datasets and the resulting files are available for you to use in the following steps. Please find in the list below the paths you can use to create symbolic links to your working directory. You can then move on to the next section of this tutorial (8. PCA).
 
-#### Download/links for imputation data
+### Reference download
 
 * On LISA (directory)  
   * HRC reference: /home/pgcdac/hapgen/HRC  
@@ -437,7 +424,7 @@ By default RICOPILI performs the pre-phasing/imputation stepwise approach using 
 Similar to other modules, we get a success \- message after job submission and email on completion. You should also regularly check *\~/impute\_dir\_info*.  
 After successful completion we will have dosage files (with genotype probabilities) and best guess genotypes (have a look at section “Output Files” [here](https://sites.google.com/a/broadinstitute.org/ricopili/imputation)). 
 
-7. ## Reference Building[^23] 
+1. ## Reference Building
 
 In some cases, where the user is using the imputation module in RICOPILI for the very first time, the reference panel needs to be built on the cluster such that pre-phasing, imputation and later, annotations within the *postimp* module could be carried out properly. The user may build the 1000 genomes reference panel, which is publicly and freely available for use, on the cluster that they are using. The *refdir\_navi* module assists the user for this purpose. Users may use the following command for building the 1000 genomes directory: 
 
@@ -445,9 +432,9 @@ In some cases, where the user is using the imputation module in RICOPILI for the
 
 In certain cases, due to the longer processing time for the reference panel to be set up, users might have to increase the time allocated for the job using *\--walltimeplus* 10 (increase by 10 hours). Also, users might also encounter initial breaking of the script that renames the vcf-files and genetic map files downloaded. In such circumstances, users may consider manually downloading the samples using wget and renaming their files with the “loc.” prefix with the mv command. Users may then restart the pipeline using the above commands. We have a separate document describing the reference building in more detail.[^24] 
 
-8. ## PCA \- module[^25] 
+1. ## PCA
 
-#### Estimating PCs and relatedness testing
+### PCs and relatedness testing
 
 It is likely that pairs of individuals are genetically related or identical within and across cohorts[^26]. In association analyses it is important to identify and adjust for (cryptic) relatedness to avoid inflated test statistics. Here we duplicated 10 individuals between cohort 4 and cohort 5 (Table 1), and expected the *‘pcaer’* module to identify them. Please change to sub-directory */pcaer\_sub* in the imputation working directory. It already contains symbolic links of best guess genotype versions [(“bgs”](https://0e7ae799-a-f9436c1e-s-sites.googlegroups.com/a/broadinstitute.org/ricopili/imputation/directroy_structure_imputation_directroy.png?attachauth=ANoY7crwJ3F3CFIGSc456ezja6shEY2r7fEnPcqsQibAmRxDxjegzgNNC-XbfgUxIEhH0IFnNcL-8M1F1hSO4Jw_5Gh9C3iqSf013IsUjZX97kA662I9KH1Y6wXzZzHpv5mNWjzxAspKGERs8Zd2ShwQn0w-bZmWv28VFmpvZcr3F6rfe0BFxlY7I56DFzCh_Wc5ilI0Js610zUl17ru_hJ5hHfQdDvrV79L_ouLwmlIhjqMeABS5-Y-G4l-jNY9CES-aI8hLCb23DARraIqUQbsjSLpjXnccg%3D%3D&attredirects=1)) for each cohort and starts the module using this command. 
 
@@ -551,13 +538,15 @@ RICOPILI also performs LD score regression analysis to calculate heritability, i
 
 As expected with this artificial and random phenotype, SNP heritability is non-significant with 2.24% (SE 7%) and there is no co-heritability with schizophrenia and major depression. 
 
-10. ## [Polygenic risk scoring (PRS)](https://docs.google.com/document/d/10jvLvnrPIz9zRKlRfMeW8HsHDxEIbs84yP3Ugjhj31E/edit)[^35]
+##10.  Polygenic risk scoring (PRS)
+(https://docs.google.com/document/d/10jvLvnrPIz9zRKlRfMeW8HsHDxEIbs84yP3Ugjhj31E/edit)[^35]
 
-#### The *‘Postimp’* module can also be used for polygenic risk scoring using dosage data. Summary statistics from other sources have to be converted to “[daner format](https://docs.google.com/document/d/1TWIhr8-qpCXB13WCXcU1_HDio8lC_MeWoAg2jlggrtU/edit)” [^36] and “clumped” using ‘clump\_nav3’. 
+The *‘Postimp’* module can also be used for polygenic risk scoring using dosage data. Summary statistics from other sources have to be converted to “[daner format](https://docs.google.com/document/d/1TWIhr8-qpCXB13WCXcU1_HDio8lC_MeWoAg2jlggrtU/edit)” [^36] and “clumped” using ‘clump\_nav3’. 
 
-11. ## [Leave one out (LOO) polygenic risk scores (PRS)](https://docs.google.com/document/d/10UKUfX4wT9rP5zswH5SDR2Y1O2-wJVUw9mn4tSdaS-I/edit#heading=h.q0af4lktj93o)[^37] 
+1.  ## 11. Leave one out (LNO) 
+polygenic risk scores (PRS)](https://docs.google.com/document/d/10UKUfX4wT9rP5zswH5SDR2Y1O2-wJVUw9mn4tSdaS-I/edit#heading=h.q0af4lktj93o)[^37] 
 
-#### To perform LOO-PRS you can take advantage of the RICOPILI directory structure. The script ‘my.preploo’ prepares the directory for such analysis. The detailed document can be found [here](https://docs.google.com/document/d/10UKUfX4wT9rP5zswH5SDR2Y1O2-wJVUw9mn4tSdaS-I/edit#)12.
+To perform LOO-PRS you can take advantage of the RICOPILI directory structure. The script ‘my.preploo’ prepares the directory for such analysis. The detailed document can be found [here](https://docs.google.com/document/d/10UKUfX4wT9rP5zswH5SDR2Y1O2-wJVUw9mn4tSdaS-I/edit#)12.
 
  **my.preploo2 \--mds cobg\_gw.hapgen\_5cohort.menv.mds\_cov \--postimp postimp\_navi \--coco 1,2,3,4 hapgen\_5\_cohorts\_run\_2a** 
 
@@ -568,7 +557,7 @@ In summary, this procedure will guide you through the setup and analysis of LOO 
 
 As expected, in our toy example, the correlations (measured as nagelkerke r2) between risk scores and phenotype are non-significant and with the seemingly random direction of effect. 
 
-12. ## Replication 
+1.  ## Replication 
 
 RICOPILI files and directory structure is also designed to ease a replication analysis[^38]. To demonstrate its usage, please refer to the leave one out meta-analysis from previous step[^39] that excluded cohort 4\. You should look for these three files:
 
@@ -590,9 +579,9 @@ As expected for random phenotype there was not a significant sign test (column s
 
 ## Additional useful documents 
 
-1. ### Template QC report for cohorts for easy sharing with collaborators for cohorts (based on Ricopili output). [https://docs.google.com/document/d/1ZdhwGeVTYMnEDM5\_KrQ5JRPrjGhBuN7SliT4M6pS19c/edit\#heading=h.ttezhwilhxbc](https://docs.google.com/document/d/1ZdhwGeVTYMnEDM5_KrQ5JRPrjGhBuN7SliT4M6pS19c/edit#heading=h.ttezhwilhxbc) 
+Template QC report for cohorts for easy sharing with collaborators for cohorts (based on Ricopili output). [https://docs.google.com/document/d/1ZdhwGeVTYMnEDM5\_KrQ5JRPrjGhBuN7SliT4M6pS19c/edit\#heading=h.ttezhwilhxbc](https://docs.google.com/document/d/1ZdhwGeVTYMnEDM5_KrQ5JRPrjGhBuN7SliT4M6pS19c/edit#heading=h.ttezhwilhxbc) 
 
-2. ### GWAS Methodology based on Ricopili analysis [https://docs.google.com/document/d/1JFfZfAgattmzfGxiV3K1nOhVp3\_kOb\_FOY2U362oO6g/edit\#heading=h.p85v4m5f3vlk](https://docs.google.com/document/d/1JFfZfAgattmzfGxiV3K1nOhVp3_kOb_FOY2U362oO6g/edit#heading=h.p85v4m5f3vlk)
+GWAS Methodology based on Ricopili analysis [https://docs.google.com/document/d/1JFfZfAgattmzfGxiV3K1nOhVp3\_kOb\_FOY2U362oO6g/edit\#heading=h.p85v4m5f3vlk](https://docs.google.com/document/d/1JFfZfAgattmzfGxiV3K1nOhVp3_kOb_FOY2U362oO6g/edit#heading=h.p85v4m5f3vlk)
 
 [^1]:  The number of SNPs are less than the other cohorts as these were formed by a merging asian and european cohorts, so we only took the overlapping SNPs between them.
 

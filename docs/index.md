@@ -1,6 +1,6 @@
 # Welcome 
 ***
-**Welcome to the Stage 1 Handbook MkDocs page!** <br>
+**Welcome to the PGC Analyst Handbook MkDocs page!** <br>
 This page aims to aggregate documentation from the [Psychiatric Genomics Consortium](https://pgc.unc.edu/). <br>
 The main focus is: <br>
     1. Data intake documentation <br>
