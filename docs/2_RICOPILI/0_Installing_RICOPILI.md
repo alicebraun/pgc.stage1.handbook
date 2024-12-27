@@ -42,7 +42,6 @@ To swiftly install RICOPILI you need to create a file called ricopili.conf e.g. 
 
 ## SURFsnellius config file 
 ```bash
-#eloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/eigensoft/mar_2023/EIG-master/bin/
 eloc /home/pgca1scz/.conda/envs/ricopili/bin/ # conda environment installation
 i2loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/impute_v2
 i4loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/impute_v4
@@ -53,26 +52,25 @@ gmloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/genetic_map_files
 sh5loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/shapeit5 
 plink2loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/plink2 
 rloc module_SPACE_load_SPACE_2023;module_SPACE_load_SPACE_R/4.3.2-gfbf-2023a;_SPACE_R
-ldsc_start /home/pgca1scz/.conda/envs/ricopili/bin/;_SPACE_ldsc.py
+ldsc_start /home/pgca1scz/.conda/envs/ricopili/bin/  # conda environment installation
 sh3loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/shapeit3
 tabixloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/tabix/
 bcloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/bcftools/bcftools-1.18
 bcloc_plugins /gpfs/work5/0/pgcdac/ricopili_download/dependencies/bcftools/bcftools-1.18/plugins/
 ealoc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/eagle
 bgziploc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/bgzip/
-ldsc_ref /gpfs/work5/0/pgcdac/ricopili_download/dependencies/ldsc # conda environment installation
-#liloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/liftover/
-liloc /home/pgca1scz/rp_dependencies/liftover #local directory
-rpac NA
+ldsc_ref /gpfs/work5/0/pgcdac/ricopili_download/dependencies/ldsc
+liloc /home/pgca1scz/rp_dependencies/liftover #local installation
+rpac /home/pgca1scz/R/x86_64-pc-linux-gnu-library/4.3/  #local installation
 p2loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/plink
 shloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/shapeit
 meloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/metal/
 bcrloc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/bcftools/resources/
-home <YOUR_HOME>
+home /home/pgca1scz/
 sloc /scratch-local
-init <YOUR_INITIALS>
-email <YOUR_MAIL>
-loloc <YOUR_HOME>
+init ab
+email braun@broadinstitute.org
+loloc /home/pgca1scz/
 batch_jobcommand sbatch
 batch_name -J_SPACE_XXX
 batch_jobfile XXX
@@ -89,6 +87,7 @@ batch_job_output_jid Submitted_SPACE_batch_SPACE_job_SPACE_XXX
 batch_ncores_per_node 32
 batch_mem_per_node 56
 queue custom
+
 
 ```
 Start the script rp_config. <br>
@@ -169,5 +168,3 @@ Follow the instructions but do not replace the config file you have just pasted.
     module load 2024
     module load texlive/20230313-GCC-11.3.0
     ``` 
-## RICOPILI with conda
-***
