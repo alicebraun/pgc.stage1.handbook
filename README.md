@@ -1,7 +1,7 @@
 # README
 
 **Welcome to the PGC Analyst Handbook MkDocs page Github!** <br>
-This page aims to aggregate documentation from the [Psychiatric Genomics Consortium](https://pgc.unc.edu/). <br>
+This page aims to aggregate documentation from the [Psychiatric Genomics Consortium](https://pgc.unc.edu/) focussing on data intake, processing and analysis. <br>
 The main focus is: 
 <br>
     1. Data intake documentation <br>
