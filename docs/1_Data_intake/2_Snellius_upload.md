@@ -1,4 +1,4 @@
-# Setting permissions
+# Snellius data upload
 ***
 **Source document**: <br> 
 [PGC Data Intake: 
@@ -14,7 +14,6 @@ Sarah Colbert, B.A., [sarah.colbert@icahn.mssm.edu](mailto:sarah.colbert@icahn.m
 ***
 **This document is shared with all investigators who are uploading data**<br>
 `UPDATED August 2020 to use NFSv4 Access Control Lists for data access`
-
 
 **Important**: 
 If you have a Snellius account already you can skip step1 (get Snellius account). But it is highly recommended to still create a new subdirectory within your home directory (and copy your to-be-shared data there) and not share data from somewhere in your working directory structure. Some of these permission settings are difficult to revoke.<br>
@@ -33,7 +32,7 @@ REQUIREMENT: A user account on the Snellius server<br>
 
 ## STEP 1: Get Snellius account and access the server with scp access
 ***
-If you do not already have a Snellius account, you will need to apply for a login account. Please follow the instructions in the Obtaining a Snellius Account google doc to do so. 
+If you do not already have a Snellius account, you will need to apply for a login account. Please follow the instructions in the [Obtaining a Snellius Account google doc](https://docs.google.com/document/d/11aXCcivo8PFsMCtf-QMAq5B0eCL4-RuMQft5DZt3Pug/edit?tab=t.0#heading=h.b4wl0z5ansba) to do so. 
 
 Once you have an account, you can login via command line to the Snellius server. For the purpose of this documentation we always assume your account to be `user`. Assuming that you have already completed the above instructions, you should now be able to log in with full access using the host "snellius.surf.nl" like so:
 ```
