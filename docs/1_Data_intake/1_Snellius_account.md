@@ -1,7 +1,6 @@
 # Obtaining a Snellius account
-
-## For PGC Users
-
+***
+**Authors**:
 Sarah Colbert, B.A., [sarah.colbert@icahn.mssm.edu](mailto:sarah.colbert@icahn.mssm.edu)  
 Prof. Stephan Ripke, M.D., Ph.D., Group Leader, [sripke@broadinstitute.org](mailto:stephan.ripke@charite.de)
 
