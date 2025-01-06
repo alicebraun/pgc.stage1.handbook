@@ -1,4 +1,4 @@
-# Data intake steps 
+# Data intake summary 
 ***
 **Source document**: <br> 
 [Summary of PGC data intake - Snellius server to YODA portal](https://docs.google.com/document/d/1VGSvFdKB4S-Tox3COG8II5Q340JXvrfE7RyQ9G9fByg/edit?tab=t.0) <br>

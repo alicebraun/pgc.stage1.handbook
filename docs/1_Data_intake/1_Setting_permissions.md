@@ -24,12 +24,12 @@ GOAL: Securely upload your genetic data to the Snellius server, where all PGC da
 REQUIREMENT: A user account on the Snellius server<br>
 
 ## STEPS overview:
-Get Snellius account <br>
-Create data upload subdirectory on Snellius<br>
-Upload genotype/intensity data files<br>
-Change home directory permissions<br>
-Change permissions in data upload directory<br>
-Notify PGC collaborator of uploaded data subdirectory<br>
+1. Get Snellius account <br>
+2. Create data upload subdirectory on Snellius<br>
+3. Upload genotype/intensity data files<br>
+4. Change home directory permissions<br>
+5. Change permissions in data upload directory<br>
+6. Notify PGC collaborator of uploaded data subdirectory<br>
 
 ## STEP 1: Get Snellius account and access the server with scp access
 ***
