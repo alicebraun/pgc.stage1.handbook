@@ -1,4 +1,4 @@
-# Leave-one-out requests
+# LNO requests
 
 Researchers may request custom LNO summary statistics that are not readily available for download on [figshare](https://figshare.com/articles/dataset/scz2022/19426775). <br>
 In general, the requesting researcher should compile a list of samples to be excluded in this [Google Sheet](https://docs.google.com/spreadsheets/d/1rdb5Dzvls87X9UJ-UmUVpGWTPt6Rv3h25JFjjhO3Ei0/edit?gid=0#gid=0) based on the instructions in [this Google Doc](https://docs.google.com/document/d/1Z3eNTOAsybHXeWLqsiy-jCWAMqA8_4ZD2UEziJao2Wo/edit?tab=t.0).
