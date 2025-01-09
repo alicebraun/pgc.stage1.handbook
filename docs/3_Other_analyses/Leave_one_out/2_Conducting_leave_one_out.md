@@ -1,4 +1,4 @@
-# Conducting leave-one-out analyses
+# Conducting leave-one-out analyses (schizophrenia group)
 ***
 **Author**: <br> Alice Braun, M.Sc., B.A. [braun@broadinstitute.org](mailto:braun@broadinstitute.org)<br> 
 ***
