@@ -1,4 +1,4 @@
-# A PGC Data processing and analysis handbook
+# PGC data processing and analysis handbook
 
 **Welcome to the PGC Analyst Handbook MkDocs page Github!** <br>
 This page aims to aggregate documentation from the [Psychiatric Genomics Consortium](https://pgc.unc.edu/) focussing on data intake, data processing and analysis. <br>
