@@ -165,6 +165,6 @@ Follow the instructions but do not replace the config file you have just pasted.
 
     Currently, you need to manually load texlive and GCC in order for several modules to run (**e.g. pcaer**):
     ```
-    module load 2024
+    module load 2022
     module load texlive/20230313-GCC-11.3.0
     ``` 
