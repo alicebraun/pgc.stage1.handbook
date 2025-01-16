@@ -10,7 +10,7 @@ The main focus is: <br>
 Please use the left-hand side bar to navigate the page. 
 
 !!! info
-    Please reach out to [braun@broadinstitute.org](braun@broadinstitute.org) to become a collaborator on this MkDocs page on Github.
+    Please reach out to [braun@broadinstitute.org](mailto:braun@broadinstitute.org) to become a collaborator on this MkDocs page on Github.
 
 
 

@@ -42,13 +42,10 @@ extra:
 
 
 plugins:
-  - search: {}
-  - git-revision-date-localized:
-      enable_creation_date: true
-      exclude:
-        - index.md
-  - encryptcontent:
-      global_password: 'icd-11'
+    - search: {}
+    - git-revision-date-localized
+    - encryptcontent:
+        global_password: 'icd11'
 
 markdown_extensions:
   - pymdownx.highlight:
