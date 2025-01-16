@@ -44,6 +44,8 @@ extra:
 plugins:
     - search: {}
     - git-revision-date-localized
+    - encryptcontent:
+        global_password: 'icd11'
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -59,7 +61,6 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - footnotes
-
 
 
 copyright: |
