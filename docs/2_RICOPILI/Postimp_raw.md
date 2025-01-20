@@ -14,7 +14,7 @@ You should be able to find it in your ricopili distribution. <br>
 In case you want to do this manually: <br>
 
 - The `dasuqc1_*` directories that contain the imputed genomic chunks for every study of interest;
-- The bed/bim/fam files of every study of interest.
+- The (pre-QC) bed/bim/fam files of every study of interest.
 - The “reference_info” file, which is required to combine the genomic chunk files across the entire genome;
 - The command will also need a “datasets_info” file with the list of filenames of all studies that are to be included.  If the pipeline doesn’t find a datasets_info file in its working directory, it will attempt to create one using the filenames of every *.bim file that it will find in the working directory. You can also create this by echoing into a text file the name of every study (the rest of the filename that follows after “dasuqc1_”).
 - If case-controls studies are present, you will also need to link in the `*.mds_cov` file with the population covariates. You need to explicitly reference this file with the --mds option of the postimp_navi command.

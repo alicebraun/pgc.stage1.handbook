@@ -20,14 +20,14 @@ From Hapgen simulated data we randomly selected 6000 European (eur) and 200 Asia
 
 | S.No | datasets | name | n | cases | controls  | SNPs  | interventions |
 | :---: | ----- | :---: | :---: | :---: | :---: | :---: |  --------------------  |
-| 1 | sim\_sim1a\_eur\_sa\_merge.miss | hap1a | 2100 | 985 | 1115 | 547764 [1]| Population stratification, technical errors |
+| 1 | sim\_sim1a\_eur\_sa\_merge.miss | hap1a | 2100 | 985 | 1115 | 547764 [^1]| Population stratification, technical errors |
 | 2 | sim\_sim2a\_eur\_sa\_merge.miss | hap2a | 1000 | 474 | 526 | 593970 | Only technical errors |
 | 3 | hapgen\_sample3a | hap3a | 1100 | 478 | 622 | 5477641 | Population stratification |
 | 4 | hapgen\_sample4b | hap4a | 1000 | 483 | 517 | 593970 | Shares 10 overlapping individuals with cohort 5 |
 | 5 | hapgen\_sample5a.ph | hap5a | 1000 | 516 | 484 | 593970 | \- |
 
 ***
-Note: [1] The number of SNPs are less than the other cohorts as these were formed by a merging asian and european cohorts, so we only took the overlapping SNPs between them.
+
 
 ## 2. **Description of biases**
 
@@ -41,15 +41,17 @@ For teaching purposes, we introduced technical errors and association biases to 
    5. To create some false positive associated SNPs, we selected 20 SNPs and flipped allele1 and allele2 while introducing missingness in these SNPs.  
    6. Finally, cases and controls were merged back into a single cohort.
 
-## 3. **Installation**
+## 3. Installation
 
-First, install the latest version of the RICOPILI pipeline on your High-performance computer(HPC). This document [here](https://docs.google.com/document/d/14aa-oeT5hF541I8hHsDAL_42oyvlHRC5FWR7gir4xco/edit#heading=h.clyzm24wfoeu)[^3] describes the process of custom installation in detail.
+First, install the latest version of the RICOPILI pipeline on your High-performance computer(HPC). This document [here](https://docs.google.com/document/d/14aa-oeT5hF541I8hHsDAL_42oyvlHRC5FWR7gir4xco/edit#heading=h.clyzm24wfoeu)[^3] describes the process of custom installation in detail. <br>
+For the quick installation please refer to this [documentation](0_Installing_RICOPILI.md)
 
-## 4. **Download data** 
+## 4. Download data
 
-The genotype data described in Table 1 can be downloaded from here: [^4][https://personal.broadinstitute.org/sawasthi/share\_links/UzoZK7Yfd7nTzIxHamCh1rSOiIOSdj\_gwas-qcerrors.py](https://personal.broadinstitute.org/sawasthi/share_links/UzoZK7Yfd7nTzIxHamCh1rSOiIOSdj_gwas-qcerrors.py)
+The genotype data described in Table 1 can be downloaded from here[^4]: <br>
+[https://personal.broadinstitute.org/sawasthi/share\_links/UzoZK7Yfd7nTzIxHamCh1rSOiIOSdj\_gwas-qcerrors.py](https://personal.broadinstitute.org/sawasthi/share_links/UzoZK7Yfd7nTzIxHamCh1rSOiIOSdj_gwas-qcerrors.py)
 
-## 5. **Quality control** 
+## 5. Quality control
 
 These two modules of the pipeline are used for quality control.
 

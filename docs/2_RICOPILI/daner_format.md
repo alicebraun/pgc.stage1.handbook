@@ -1,12 +1,6 @@
-# Ricopili daner format
-
-### Vassily Trubetskoy, **[vassily@broadinstitute.org](mailto:vassily@broadinstitute.org)** Prof. Stephan Ripke, M.D., Ph.D., Group Leader, [stephan.ripke@charite.de](mailto:stephan.ripke@charite.de)
-
-[GResU](https://www.bihealth.org/de/forschung/projekte/gwas-research-unit/%20) (GWAS Research Unit, BIH, Berlin)
-
-# **(Last modified on: 18.09.2019)**
-
-# 
+# RICOPILI daner format
+**Author**: <br> Vassily Trubetskoy, **[vassily@broadinstitute.org](mailto:vassily@broadinstitute.org)<br> Prof. Stephan Ripke, M.D., Ph.D., Group Leader, [stephan.ripke@charite.de](mailto:stephan.ripke@charite.de)
+***
 
 The daner file reports GWAS summary statistics for a set of variants. It is a tab delimited format with a header line and one row per variant tested. The name “daner” comes from “Dosage ANalyzER” and reflects the fact that these summary statistic originally came from analysis of imputed genotype dosages. The format has grown and has been adapted for use across the Ricopili code base.
 
@@ -16,7 +10,7 @@ There are two situations in which you typically encounter daner files. The forma
 
 # 
 
-# 1 \- Single study GWAS
+# Single study GWAS
 
 The single study daner contains the following 12 columns, in order:
 
@@ -35,7 +29,7 @@ The single study daner contains the following 12 columns, in order:
 | 11 | *P* | The corresponding p-value of the test. |
 | 12 | *ngt* | Number of datasets where the SNP was genotyped directly (i.e. not imputed). This will be a maximum of 1 for the single study case. This column is for display only and does not influence any of the other parameters. |
 
-# 2 \- Multi-study GWAS meta-analysis
+# Multi-study GWAS meta-analysis
 
 This daner file will contain the 12 columns above, and additionally the following columns are appended:
 
