@@ -3,6 +3,14 @@
 **Author**: <br> Alice Braun, M.Sc., B.A. [braun@broadinstitute.org](mailto:braun@broadinstitute.org)<br> 
 ***
 
+## Downloading dependencies
+If RICOPILI isn't centrally installed on your cluster (e.g. on SURFsnellius or Broad UGER) you'll need to download a dependency package via
+```wget https://personal.broadinstitute.org/braun/sharing/Ricopili_Dependencies.1118b.tar.gz
+wget https://personal.broadinstitute.org/braun/sharing/Ricopili_Dependencies.1118b.md5.cksum
+# verify checksum
+md5sum Ricopili_Dependencies.1118b.tar.gz
+tar -xvzf Ricopili_Dependencies.1118b.tar.gz```
+
 ## On SURFsnellius
 ***
 Download from GitHub via ssh from https://github.com/Ripkelab/ricopili

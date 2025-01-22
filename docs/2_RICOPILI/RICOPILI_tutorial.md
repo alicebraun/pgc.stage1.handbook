@@ -56,18 +56,18 @@ The genotype data described in Table 1 can be downloaded from here[^4]: <br>
 These two modules of the pipeline are used for quality control.
 
 1. [Preimp module](https://sites.google.com/a/broadinstitute.org/ricopili/preimputation-qc)[^5] : for technical quality control of SNPs and individuals.   
-   2. [PCA module](https://sites.google.com/a/broadinstitute.org/ricopili/pca)[^6] : for genomic quality control (ancestry checks, overlapping/related individuals).
+2. [PCA module](https://sites.google.com/a/broadinstitute.org/ricopili/pca)[^6] : for genomic quality control (ancestry checks, overlapping/related individuals).
 
 Here, we introduce the functions of the *‘preimp’* and *‘PCA’* modules to clean genotyped datasets within and out of the RICOPILI pipeline. Typically, the *‘preimp’* module performs standard GWAS quality control procedures for stipulated datasets fed into the pipeline. We will carry out multiple quality control runs iteratively cleaning the five original HAPGEN plink datasets, until they become appropriate for downstream imputation and association analysis.   
    
 First, place all the above cohorts (Table 1\) into an empty directory and start the *‘preimp*’ module for quality controls using the command below from within that directory. 
 
  **preimp\_dir \--dis sim \--out hapgen\_5cohorts**   
-This will run the *‘preimp’* module with default QC parameters which are standardized and described in the [supplementary information](https://docs.google.com/document/d/1IdGe8wIVMElK8mqOOH8RePEqeVxpaofOD_trmQKryNg/edit#).[^7] Flag *‘--dis’* takes an abbreviation for the study phenotype, please use three [characters](https://0e7ae799-a-f9436c1e-s-sites.googlegroups.com/a/broadinstitute.org/ricopili/preimputation-qc/disorder_name_suggestions.png?attachauth=ANoY7cp0s0DqJuF_NQLMbfwDO4bydEsezfW4xs-LOAHl-nrs9XR4RMsnJeOCZG-jCKCVi1vhPyx_oj7RHnRD4zrg6NifS_UaJimy5Qn_US6ZlWwnxPSCqqI4d4WlYuBgkQS_MKWgMkC3RuT187EGK9V1GhuOV64XJo61sm1oxunMsbNDVotizBeqG9ROB5d6ot-WF92YKOPhd4QHOnDkt0SjntuhGDu8PjwBDRJcRt3OymMannVFQ0bJd7hgBHISHszwvm8XIBag&attredirects=1)[^8] (we used “sim” for “simulated data”). After the first invocation of the command, you will be asked to fill out *‘\[--dis\].names’* (in this case it will be *‘sim.names’*; Figure 1a).[^9] To edit, open *‘\[--dis\].names’ in vim[^10] editor.*
+This will run the *‘preimp’* module with default QC parameters which are standardized and described in the [supplementary information](https://docs.google.com/document/d/1IdGe8wIVMElK8mqOOH8RePEqeVxpaofOD_trmQKryNg/edit#).[^7] Flag *‘--dis’* takes an **abbreviation** for the study phenotype, please use three [characters](https://0e7ae799-a-f9436c1e-s-sites.googlegroups.com/a/broadinstitute.org/ricopili/preimputation-qc/disorder_name_suggestions.png?attachauth=ANoY7cp0s0DqJuF_NQLMbfwDO4bydEsezfW4xs-LOAHl-nrs9XR4RMsnJeOCZG-jCKCVi1vhPyx_oj7RHnRD4zrg6NifS_UaJimy5Qn_US6ZlWwnxPSCqqI4d4WlYuBgkQS_MKWgMkC3RuT187EGK9V1GhuOV64XJo61sm1oxunMsbNDVotizBeqG9ROB5d6ot-WF92YKOPhd4QHOnDkt0SjntuhGDu8PjwBDRJcRt3OymMannVFQ0bJd7hgBHISHszwvm8XIBag&attredirects=1)[^8] (we used “sim” for “simulated data”). After the first invocation of the command, you will be asked to fill out *‘\[--dis\].names’* (in this case it will be *‘sim.names’*; Figure 1a).[^9] To edit, open *‘\[--dis\].names’ in vim[^10] editor.*
 
- **vim sim.names** 
+ `vim sim.names` or use another editor to fill <mark>STUDYNAME, BFILE, QCCYCLE, EXCLUDE</mark>
 
-Press **i** to start insert mode (Figure 1a) and start editing with cursor and keyboard (mouse is not working here). If finished, save and quit by pressing **esc** , : (colon).  **w** (for “write”) and **q**  (for “quit”), please compare it with Figure 1b.  Then press **enter** to execute this saving/exiting.   
+Press `i` to start insert mode and start editing. If finished, save and quit by pressing `esc :x`. <br>
 Users are advised to use informative study names (please read recommendations in the comments) for each of the five cohorts under the column ‘STUDYNAME’ and leave “0” under column ‘EXCLUDE’ to keep these datasets in this QC run. Mark this first QC with “1” in the ‘QCCYCLE’ column.
 
 ![https://lh5.googleusercontent.com/KeU-zjPbDj1keo3zYgvibPES12OOMN3JbFcqHDbodp\_mEsPh88DSOsl5flAtjvdSmIrOwF\_EzvsnUjiM75KzYusXFZLnfVTSlVGAe0K8VapmEYujupzgg6K6jHNpj-GWVVfoq9bq][image1]  
