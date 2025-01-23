@@ -10,7 +10,8 @@ wget https://personal.broadinstitute.org/braun/sharing/Ricopili_Dependencies.111
 wget https://personal.broadinstitute.org/braun/sharing/Ricopili_Dependencies.1118b.md5.cksum
 # verify checksum
 md5sum Ricopili_Dependencies.1118b.tar.gz
-tar -xvzf Ricopili_Dependencies.1118b.tar.gz```
+tar -xvzf Ricopili_Dependencies.1118b.tar.gz
+```
 
 ## On SURFsnellius
 ***
