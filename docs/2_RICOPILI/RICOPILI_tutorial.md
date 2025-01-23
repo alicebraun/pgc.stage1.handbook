@@ -70,11 +70,41 @@ This will run the *‘preimp’* module with default QC parameters which are sta
 Press `i` to start insert mode and start editing. If finished, save and quit by pressing `esc :x`. <br>
 Users are advised to use informative study names (please read recommendations in the comments) for each of the five cohorts under the column ‘STUDYNAME’ and leave “0” under column ‘EXCLUDE’ to keep these datasets in this QC run. Mark this first QC with “1” in the ‘QCCYCLE’ column.
 
-![https://lh5.googleusercontent.com/KeU-zjPbDj1keo3zYgvibPES12OOMN3JbFcqHDbodp\_mEsPh88DSOsl5flAtjvdSmIrOwF\_EzvsnUjiM75KzYusXFZLnfVTSlVGAe0K8VapmEYujupzgg6K6jHNpj-GWVVfoq9bq][image1]  
-Figure 1a: Screenshot ‘*sim.names*’ (*\[--dis\].names*) from first ‘*preimp*’(initially).
+```
+###STUDYNAME:    5 alphanumeric characters, we recommend to reflect city or study abbreviation and wave-number, e.g. lond1 (for London), cloz2 (for Clozapine)
+###              please negotiate with PIs about this name
+###BFILE:        bed-filename root, e.g. if you dataset is called YOURDATA.bed, then please use YOURDATA in this column
+###QCCYCLE:      numeric indicating the rounds of quality controls you have already performed
+###              this will be appended to the resulting files with -qc1 or -qc2
+###EXCLUDE:      set 0 if you want this dataset being included in the preimp process
 
-![][image2]  
-Figure 1b: Screenshot ‘*sim.names*’ (*\[--dis\].names*) from first ‘*preimp*’ (after).
+STUDYNAME      BFILE                    QCCYCLE    EXCLUDE
+sim1           hapgen_sample5a.ph       1          0
+sim2           hapgen_sample4b          1          0     
+sim3           hapgen_sample3a          1          0
+sim4           sim_sim1a_sa_merge.miss  1          0      
+sim5           sim_sim2a_sa_merge.miss  1          0   
+```
+Figure 1a: ‘*sim.names*’ (*\[--dis\].names*) from first ‘*preimp*’(initially).
+
+![][image2] 
+
+```
+###STUDYNAME:    5 alphanumeric characters, we recommend to reflect city or study abbreviation and wave-number, e.g. lond1 (for London), cloz2 (for Clozapine)
+###              please negotiate with PIs about this name
+###BFILE:        bed-filename root, e.g. if you dataset is called YOURDATA.bed, then please use YOURDATA in this column
+###QCCYCLE:      numeric indicating the rounds of quality controls you have already performed
+###              this will be appended to the resulting files with -qc1 or -qc2
+###EXCLUDE:      set 0 if you want this dataset being included in the preimp process
+
+STUDYNAME      BFILE                    QCCYCLE    EXCLUDE
+hap5a           hapgen_sample5a.ph       1          0
+hap4a          hapgen_sample4b          1          0     
+hap3a          hapgen_sample3a          1          0
+hap1a          sim_sim1a_sa_merge.miss  1          0      
+hap2a          sim_sim2a_sa_merge.miss  1          0   
+```
+Figure 1b: ‘*sim.names*’ (*\[--dis\].names*) from first ‘*preimp*’ (after).
 
 Save *‘\[--dis\].names’* and repeat the command below in the same directory. 
 
@@ -82,7 +112,15 @@ Save *‘\[--dis\].names’* and repeat the command below in the same directory.
 
 A successful job submission will end with the message in Figure 2\.
 
-![][image3]  
+```
+------------------------------------------------------------
+1 jobs successfully submitted
+please see tail of /home/pgca1scz//preimp_dir_info for regular updates
+also check bjobs -w for running jobs
+possibly differnt command on different computer cluster: e.g. qstat -u USER
+you will be informed via email if errors or successes occur
+------------------------------------------------------------
+```
 Figure 2: Message of successful *‘preimp’* jobs submissions
 
 You will be informed via email after successful completion of the *‘preimp’* module, if the email program is properly installed on your system. With or without email notifications, it is recommended to check running modules on your HPC in the file *preimp\_dir\_info[^11]* (Figure 3; which is in your home directory or in the *loloc*\-directory you specified during custom installation). After successful completion of the preimp-module, a detailed QC report for each cohort is found in subdir *‘qc/*’ (Table 2). We will now describe the results from the *‘preimp’* module and will also perform further QC action if necessary on each cohort separately. For the purpose of the current tutorial, it is recommended that users start a new directory using the *mkdir* command for each QC run. 
@@ -138,7 +176,7 @@ Figure 7: PCA plot for cohort 1
 
 Figure 7 clearly shows the presence of two distinct populations which reflects the merging of two cohorts from distinct ancestries. Here we want to restrict the analysis to European ancestry, so we choose a threshold that will exclude the much smaller Asian subset (e.g. PCA1=0.01).[^15] You can use **pca\_hap1a.menv.mds[^16]** file for this purpose that lists the value of all 20 PCs (principal components) of each individual. 
 
- **awk '$4\<0.01' pca\_hap1a.menv.mds \> hap1a.eur.sample.txt**
+`awk '$4<0.01' pca_hap1a.menv.mds > hap1a.eur.sample.txt`
 
 Furthermore this module checks for overlapping/related individuals. One quick way to identify if there are any overlapping individuals (within the cohort) is to check the **pca\_hap1a.mepr.overlap** (\[--out\].mepr.overlap) which can be uncovered by unpacking **pca\_hap1a.menv.mds.tar.gz.**  
 
@@ -147,15 +185,25 @@ Furthermore this module checks for overlapping/related individuals. One quick wa
 The file **\[--out\].mepr.overlap** list all the overlapping/related individuals with PIHAT values greater than 0.2. Here **pca\_hap1a.mepr.overlap** is empty indicating there are no overlapping/related individuals. Detailed identification of the overlapping individuals will come later in this document. 
 
 Now include the individuals (only the european) in the **‘hap1a.eur.sample.txt’**, using plink \--keep.   
- **plink \--bfile sim\_hap1a\_eur\_sa-qc1 \--keep hap1a.eur.sample.txt \--make-bed \--out hap1a\_only\_eur**
+`plink --bfile sim_hap1a_eur_sa-qc1 --keep hap1a.eur.sample.txt --make-bed --out hap1a\_only\_eur`
 
 Then, from an empty directory, perform another *‘preimp’* on the second version of the data i.e. without the asian individuals **(hap1a\_only\_eur.bed/.bim/.fam)** using similar command as described above.
 
- **preimp\_dir \--dis sim \--out hap1a\_eur**
+`preimp_dir --dis sim --out hap1a_eur`
 
 Now alter ‘*sim.names*’ (*\[--dis\].names*) to “hap1b” under STUDYNAME and “2” under QCCYCLE (Figure 8\) since this is the second cycle of ‘*preimp*’ on cohort 1\. 
 
-![][image10]  
+```
+###STUDYNAME:    5 alphanumeric characters, we recommend to reflect city or study abbreviation and wave-number, e.g. lond1 (for London), cloz2 (for Clozapine)
+###              please negotiate with PIs about this name
+###BFILE:        bed-filename root, e.g. if you dataset is called YOURDATA.bed, then please use YOURDATA in this column
+###QCCYCLE:      numeric indicating the rounds of quality controls you have already performed
+###              this will be appended to the resulting files with -qc1 or -qc2
+###EXCLUDE:      set 0 if you want this dataset being included in the preimp process
+
+STUDYNAME      BFILE      QCCYCLE      EXCLUDE
+hab1b          hab1a_only_eur    2       0
+```
 Figure 8: Screenshot ‘*sim.names*’ (*\[--dis\].names*) from second ‘*preimp*’ on cohort 1\.
 
 Save *‘\[--dis\].names’* and repeat the command below in the same directory. 

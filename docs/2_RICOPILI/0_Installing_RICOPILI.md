@@ -5,7 +5,8 @@
 
 ## Downloading dependencies
 If RICOPILI isn't centrally installed on your cluster (e.g. on SURFsnellius or Broad UGER) you'll need to download a dependency package via
-```wget https://personal.broadinstitute.org/braun/sharing/Ricopili_Dependencies.1118b.tar.gz
+```
+wget https://personal.broadinstitute.org/braun/sharing/Ricopili_Dependencies.1118b.tar.gz
 wget https://personal.broadinstitute.org/braun/sharing/Ricopili_Dependencies.1118b.md5.cksum
 # verify checksum
 md5sum Ricopili_Dependencies.1118b.tar.gz
@@ -171,7 +172,8 @@ Follow the instructions but do not replace the config file you have just pasted.
 
 !!! warning
 
-    Currently, you need to manually load texlive and GCC in order for several modules to run (**e.g. pcaer**):
+    Currently, you need to manually load texlive and GCC in order for several modules to run (**e.g. pcaer**) <br>
+    You can also simply add it to your .bashrc file:
     ```
     module load 2022
     module load texlive/20230313-GCC-11.3.0
