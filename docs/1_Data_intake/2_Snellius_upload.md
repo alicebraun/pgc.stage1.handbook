@@ -8,6 +8,7 @@ Prof. Stephan Ripke, M.D., Ph.D., Group Leader, [ sripke@broadinstitute.org ](ma
 Daniel Howrigan, Ph.D., Group Leader, [howrigan@broadinstitute.org](mailto:howrigan@broadinstitute.org)<br>
 Vassily (Vasa) Trubetskoy, B.A., M.Sc, [vassily@broadinstitute.org](mailto:vassily@broadinstitute.org)<br>
 Sarah Colbert, B.A., [sarah.colbert@icahn.mssm.edu](mailto:sarah.colbert@icahn.mssm.edu)<br>
+Alice Braun, B.A., M.Sc., [braun@broadinstitute.org](mailto:braun@broadinstitute.org)<br>
 ***
 
 ## Uploading data to the Snellius server

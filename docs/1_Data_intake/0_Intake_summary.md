@@ -37,28 +37,20 @@ Data intake (phase two, or form 2):
 ***
 - Email sent to PGC DRC rep and  stage 1 analyst
 - Email sent to data owner about getting a Snellius account and uploading data to Snellius
-!!! YODA
-    - Directory created in Yoda disease subfolder <br>
-    - Access to subfolder granted by adding data owner email to subfolder
+
 
 ## STEP 6: Getting a Snellius account
 ***
 - Fill out required forms and project
 - Wait for approval
 - Get IP cleared for access to server
-!!! YODA
-      - Data owner enters email address into login portal<br>
-      - Prompted to create password<br>
-      - Upon entry, data owner can view accessible folder <br>
+
 
 ## STEP 7: Uploading data to Snellius
 ***
 Copy data to home directory
 Change access permissions for S1 analyst
 Email S1 analyst that data is ready<br>
-!!! YODA
-      - Data owner can upload files via GUI
-      - Files will need to have metadata provided
 
 ## STEP 8: Data copied to DRC-specific working directory
 ***
@@ -74,6 +66,3 @@ DRC directory location example for MDD workgroup:
                     └── data1
 
 ```
-!!! YODA
-      - Data owner submits the files to the “vault”, which retains the current state of the folder
-      - The data manager gets notified that files have been submitted, and can accept or reject the submission
