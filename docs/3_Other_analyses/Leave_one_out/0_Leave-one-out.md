@@ -1,4 +1,5 @@
 # Leave-one-out analyses (LNO)
+***
 **Author**: <br> Alice Braun, M.Sc., B.A. [braun@broadinstitute.org](mailto:braun@broadinstitute.org)<br> 
 ***
 Occasionally researchers will request summary statistics **excluding specific samples**. <br>
