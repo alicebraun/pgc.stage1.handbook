@@ -3,19 +3,24 @@
 **Author**: <br> Alice Braun, M.Sc., B.A. [braun@broadinstitute.org](mailto:braun@broadinstitute.org)<br> 
 ***
 
+`Last update: 2025-03-03` <br>
 
-`Last update: 2025-02-24` <br>
 This short README is intended to quickly get you started on the **SURFsnellius supercomputer** and the **Broad Institute's UGER HPC**. <br>
 An up-to-date documentation for custom installation guide is underway. You can find a documentation in this [Google Doc](https://docs.google.com/document/d/14aa-oeT5hF541I8hHsDAL_42oyvlHRC5FWR7gir4xco/edit?tab=t.0). <br>
+
+## Table of Contents  
+1. [Download and dependencies](#Download-and-dependencies) <br> 
+2. [Installation on SURFsnellius](#installation-on-surfsnellius) <br>
+3. [Installation on Broad UGER](#installation-on-broad-uger)
+4. [Quick tutorial](#quick-tutorial)
 > [!NOTE]  
 >For a more comprehensive documentation on how to run the individual modules and interpret their output please visit: [sites.google.com/a/broadinstitute.org/ricopili/](https://sites.google.com/a/broadinstitute.org/ricopili/)
 
-## Installation on SURFsnellius
-### Download
-Download RICOPILI from GitHub via ssh from https://github.com/Ripkelab/ricopili
+# Download and dependencies 
+Download RICOPILI from GitHub via ssh from https://github.com/Ripkelab/ricopili <br>
 
 <details >
-<summary><strong>Trouble running Git on SURFsnellius?</strong></summary>
+<summary><strong>Trouble running Git on your HPC?</strong></summary>
   
 > If you are unable to download from GitHub, you need to copy your SSH key to GitHub first:  
 > 
@@ -65,29 +70,46 @@ git clone git@github.com:Ripkelab/ricopili.git
 mv ricopili/rp_bin/ ~
 ```
 Or via wget:
-```
-wget https://www.dropbox.com/scl/fi/kc9m59w0btj6u4uz63clt/rp_bin.2024_Nov_21.001.tar.gz
-tar -xvzf rp_bin.2024_Nov_21.001.tar.gz
-```
-> [!NOTE]  
-> We recommend to install a set of software (mostly R packages) unvailable on Snellis via conda/mamba:
-```
-wget https://personal.broadinstitute.org/braun/sharing/	rp_env_0225b.yaml 
-mamba env create -n rp_env -f rp_env.yaml
-# the software will be in /home/$USER/.conda/envs/rp_env/
+
+```bash
+wget https://personal.broadinstitute.org/braun/sharing/rp_bin.2025_Feb_20.001.tar.gz 
+wget https://personal.broadinstitute.org/braun/sharing/rp_bin.2025_Feb_20.001.md5.cksum 
+
+# verify checksum
+md5sum rp_bin.2025_Feb_20.001.md5.cksum 
+tar -xvzf rp_bin.2025_Feb_20.001.tar.gz 
 ```
 
-### RICOPILI configuration on SURFsnellius
+> [!NOTE]  
+> If you'd like to install RICOPILI on a different cluster than the Broad UGER or the SURFsnellius supercomputer we recommend downloading the depency tarball:
+```bash
+wget https://personal.broadinstitute.org/braun/sharing/ricopili_dependencies_0225b.tar.gz 
+wget https://personal.broadinstitute.org/braun/sharing/ricopili_dependencies_0225b.md5.cksum
+
+# verify checksum
+md5sum ricopili_dependencies_0225b.tar.gz
+tar -xvzf ricopili_dependencies_0225b.tar.gz
+```
+
+> [!NOTE]  
+> We recommend to install an additional set of software (mostly R packages) via conda/mamba:
+```bash
+# download conda yaml file to build environment with all neccesary R packages
+wget https://personal.broadinstitute.org/braun/sharing/rp_env_0225b.yaml 
+mamba env create -n rp_env -f rp_env.yaml
+
+# the software will be e.g. in /home/$USER/.conda/envs/rp_env/
+```
+
+# Installation on SURFsnellius
 ***
 On SURFsnellius you may use the centrally installed dependencies on PGC DAC: <br>
 `/gpfs/work5/0/pgcdac/ricopili_download/dependencies/` <br>
 To swiftly install RICOPILI you need to create a file called ricopili.conf in your **home directory**. <br>
 `vim ricopili.conf` and paste the following contents, replacing: `init` and `email` with your personal information. <br>
 
-## SURFsnellius config file 
-The current file runs under environment 2023 (module load 2023)
+## SURFsnellius ricopili.conf file 
 ```bash
-# software
 eloc /home/$USER/.conda/envs/rp_env/bin/
 i2loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/impute_v2
 i4loc /gpfs/work5/0/pgcdac/ricopili_download/dependencies/impute_v4
@@ -134,15 +156,19 @@ batch_ncores_per_node 32
 batch_mem_per_node 56
 queue custom
 ```
+
 Start the script `./rp_config` from within the **`rp_bin` directory**. <br>
 This is an interactive script that will take care of the installation in your computer cluster environment. <br>
-If Ricopili is already installed in the system under your account, it will ask you if you wish to unset the Ricopili PATH settings first. For first time custom installation it is highly recommended to do so. The configuration script will give you the two commands you have to issue. You just need to copy/paste them into the command line. <br>
-If the configuration script cannot find a configuration file (by default the script is looking for a file named rp_config.custom.txt) an empty file is created, that needs to be filled by you and/or a system-administrator. <br>
-This file follows a two column structure, where variable-names are found in the first column and variable-values in the second. “###” means comments, everything after that is discarded. <br>
+If RICOPILI is already installed in the system under your account, it will ask you if you wish to unset the Ricopili PATH settings first. For first time custom installation it is highly recommended to do so. <br>
+The configuration script will give you the two commands you have to issue. You just need to copy/paste them into the command line. <br>
+
+## SURFsnellius rp_config.custom.txt file 
+If the configuration script cannot find a configuration file (by default the script is looking for a file named `rp_config.custom.txt`) an empty file is created, that needs to be filled by you and/or a system-administrator. <br>
+This file follows a two column structure, where variable-names are found in the first column and variable-values in the second. “###” are comments. <br>
 Whitespace can be as long as necessary, spaces are not allowed. Please use term `_SPACE_` if needed. <br>
 To run the next step of the configuration on **SURFsnellius** you can copy paste the following into the `rp_config.custom.txt` at the **`rp_bin` directory**, replacing `rp_user_initials, rp_user_email, rp_logfiles`:<br>
-```bash
 
+```bash
 ### for details please refer to https://docs.google.com/document/d/14aa-oeT5hF541I8hHsDAL_42oyvlHRC5FWR7gir4xco/edit?usp=sharing
 ###          and https://docs.google.com/spreadsheets/d/1LhNYIXhFi7yXBC17UkjI1KMzHhKYz0j2hwnJECBGZk4/edit?usp=sharing
 variable_name                  variable_value
@@ -152,11 +178,11 @@ R_packages_dir      /home/$USER/R/x86_64-pc-linux-gnu-library/4.3/
 starting_R          starting_R module_SPACE_load_SPACE_2023;module_SPACE_load_SPACE_R/4.3.2-gfbf-2023a;_SPACE_R
 path_to_Perlmodules /gpfs/work5/0/pgcdac/ricopili_download/dependencies/perl_modules
 path_to_scratchdir  /scratch-local
-starting_ldsc       /home/$USER/.conda/envs/ricopili/bin/
+starting_ldsc       /home/$USER/.conda/envs/rp_env/bin/
 ldsc_reference      /gpfs/work5/0/pgcdac/ricopili_download/dependencies/ldsc
 rp_user_initials    <YOUR_INITIALS>
 rp_user_email       <YOUR_MAIL>
-rp_logfiles         <YOUR_HOME>
+rp_logfiles         /home/$USER/
 ----------------------------------------
 ----------------------------------------
 ---- jobarray and queueing parameters:
@@ -179,7 +205,7 @@ batch_ncores_per_node 32
 batch_mem_per_node 56
 ```
 After creating these files run `./rp_config` again
-Follow the instructions but do not replace the config file you have just copy-pasted.
+Follow the instructions but **do not replace the config file** you have just copy-pasted.
 
 ## Known issues and bug fixes on SURFsnellius
 ***
@@ -191,16 +217,15 @@ Follow the instructions but do not replace the config file you have just copy-pa
   >  `eloc /home/$USER/.conda/envs/rp_env/bin/`<br><br>
   > 2. LDSC is not available as a module on SURFsnellius. <br>
   >  As it uses Python 2.7 you can install LDSC into a new environemnt through conda/ mamba: <br>
-  >  `conda create -n ldsc python=2.7.15 -c conda-forge -c bioconda ldsc`
+  >  `mamba create -n ldsc python=2.7.15 -c conda-forge -c bioconda ldsc`
   >  try to start ldsc manually to see if it runs and then add the following to your rp_config file:
   >  `ldsc_start /home/$USER/.conda/envs/ldsc/bin/` <br><br>
   > 3. Currently, you need to manually load texlive and GCC in order for several modules to run (**e.g. pcaer**).
   > You can also add this to your bashrc directly: <br>
   > `module load 2022 \module load texlive/20230313-GCC-11.3.0`
 
-## Installation in the Broad Institute cluster
+## Installation on Broad UGER
 ***
-
 In order to install RICOPILI on the Broad Institute HPC you'll need to run the following commands first: <br> 
 ```bash
 #login to UGER
@@ -216,19 +241,10 @@ export PATH=/psych/ripke/share/latex_2019/bin/x86_64-linux:$PATH
 ish
 ```
 
-## Download dependencies 
-If you'd like to install RICOPILI on a different cluster than the Broad Institute UGER HPC or the SURFsnellius supercomputer you're can download the depencies via the following tarball:
-```bash
-wget https://personal.broadinstitute.org/braun/sharing/ricopili_dependencies_0225b.tar.gz 
-wget https://personal.broadinstitute.org/braun/sharing/ricopili_dependencies_0225b.md5.cksum
-
-# verify checksum
-md5sum ricopili_dependencies_0225b.tar.gz
-tar -xvzf ricopili_dependencies_0225b.tar.gz
-```
-
-On the Broad UGER cluster you may use the centrally installed dependencies on: <br>
+On the Broad UGER cluster you may use the centrally installed dependencies on (we will implement the new software soon): <br>
 `/psych/ripke/share/gio/Ricopili_Dependencies_sr_1118b` <br>
+
+## Broad UGER config file
 To swiftly install RICOPILI you need to create a file called ricopili.conf in your **home directory**. <br>
 `vim ricopili.conf` and paste the following contents, replacing: `home, init, email, loloc, sloc` with your personal information. <br>
 ```bash
@@ -307,24 +323,67 @@ rp_logfiles          /home/unix/$USER
 ---- jobarray and queueing parameters: 
 ----------------------------------------
 ----------------------------------------
-batch_jobcommand                                 qsub             
-batch_memory_request                             -l_SPACE_h_vmem=XXXg             
-batch_walltime                                   -l_SPACE_h_rt=HH:MM:SS            
-batch_array                                      -t_SPACE_1-XXX             
-batch_max_parallel_jobs_per_one_array            -tc_SPACE_YYY
-batch_jobfile                                    XXX
-batch_name                                       -N_SPACE_XXX
-batch_stdout                                     -o_SPACE_XXX
-batch_stderr                                     -e_SPACE_XXX
-batch_job_dependency                             -hold_jid_SPACE_XXX
-batch_array_task_id                              $SGE_TASK_ID
-batch_other_job_flags                            -v_SPACE_PATH,rp_perlpackages,RPHOME_SPACE_-l_SPACE_hostname=uger-c*
-batch_job_output_jid                             Your_SPACE_job-array_SPACE_XXX.1-YYY:1_SPACE("ZZZ")_SPACE_has_SPACE_been_SPACE_submitted,
-batch_ncores_per_node        NA
-batch_mem_per_node           NA
+batch_jobcommand qsub             
+batch_memory_request -l_SPACE_h_vmem=XXXg             
+batch_walltime -l_SPACE_h_rt=HH:MM:SS            
+batch_array -t_SPACE_1-XXX             
+batch_max_parallel_jobs_per_one_array -tc_SPACE_YYY
+batch_jobfile XXX
+batch_name -N_SPACE_XXX
+batch_stdout -o_SPACE_XXX
+batch_stderr -e_SPACE_XXX
+batch_job_dependency -hold_jid_SPACE_XXX
+batch_array_task_id $SGE_TASK_ID
+batch_other_job_flags -v_SPACE_PATH,rp_perlpackages,RPHOME_SPACE_-l_SPACE_hostname=uger-c*
+batch_job_output_jid Your_SPACE_job-array_SPACE_XXX.1-YYY:1_SPACE("ZZZ")_SPACE_has_SPACE_been_SPACE_submitted,
+batch_ncores_per_node NA
+batch_mem_per_node NA
 ```
 
 ## Known issues and bug fixes on Broad UGER
 > [!WARNING]  
   >  1. Currently, LDSC is not available as a module on Broad UGER. <br>
   > You may need to run the pipeline (post_imp_navi, test_navi) with the flag `--noldsc` or install LDSC manually via mamba/ conda:<br>
+
+# Quick tutorial
+## Quality control module (pre-imputation)
+This module performs SNP and Sample quality control (QC) of multiple datasets in parallel. It's highly recommend to go through [RICOPILI tutorial](https://docs.google.com/document/d/1ux_FbwnvSzaiBVEwgS7eWJoYlnc_o0YHFb07SPQsYjI/edit?tab=t.0#heading=h.tkgxq8x9kt6n) before using this module. <br>
+
+### Input Requirements
+1. Binary PLINK files (bed/bim/fam), multiple datasets in working directory are allowed
+2. Phenotypes coded as 1 (control) or 2 (case)
+3. Allele names A,C,G,T
+
+Genome build hg16, hg17, hg18, hg19 or hg38 <br>
+To start genomic quality control run the following command:
+
+```
+preimp_dir --help # to show all flags and options
+preimp_dir --dis scz --pop eur --out aber 
+vim *.names # to edit file
+preimp_dir --dis scz --pop eur --out aber # resubmit
+```
+## Principal component module
+This module takes PLINK binary output file from the Preimputation/QC step and calculates the principal components, determines overlapping samples, determines which covariates are associated with the genotype data, and generates PCA plots a to check the ancestry of the cohorts and to exclude ancestry outliers. 
+To conduct a princpal component analysis run the following command:
+``` 
+pcaer --help 
+pcaer --out output_name bfile-qc.bim  
+```
+
+## Imputation module
+This module performs imputation on binary PLINK datasets generated by the Preimputation-QC step. The output is a set of dosage probabilities for all markers in a user-specified reference panel (there are a number of reference panels to choose from including MHC classical alleles and amino acids, HapMap, HRC, and 1000 Genomes).
+
+To conduct genotype imputation based on your reference run following command:
+``` 
+impute_dirsub --help
+impute_dirsub --refdir imputation_reference --out antwe_test_beps
+```
+
+## GWAS and meta-analysis module (post-imputation)
+This module performs association analyses for common variants from imputed dosage data for each dataset QC'd in the Preimputation step and then does a final meta-analysis using METAL. Population stratification is accounted for using principal components generated from the PCA step.
+```
+postimp_navi --help
+postimp_navi --out OUTNAME --mds prune.bfile.cobg.OUTNAME_PCA.menv.mds_cov --coco 1,2,3,4 --addout run1
+```
+
